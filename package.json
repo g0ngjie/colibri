@@ -7,11 +7,11 @@
   "scripts": {
     "watch": "run-p watch:lib watch:page",
     "watch:lib": "pnpm -C ./packages/colibri-lib watch",
-    "watch:page": "pnpm -C ./packages/shell-chrome watch",
-    "build": "pnpm -C ./packages/colibri-lib build & pnpm -C ./packages/shell-chrome build",
+    "watch:page": "pnpm -C ./packages/shell-chrome-origin watch",
+    "build": "pnpm -C ./packages/colibri-lib build & pnpm -C ./packages/shell-chrome-origin build",
     "build:lib": "pnpm -C ./packages/colibri-lib build",
-    "clean:build": "rm -rf ./packages/colibri-lib/lib && rm -rf ./packages/shell-chrome/dist",
-    "page": "pnpm -C ./packages/shell-chrome dev"
+    "clean:build": "rm -rf ./packages/colibri-lib/lib && rm -rf ./packages/shell-chrome-origin/dist",
+    "page": "pnpm -C ./packages/shell-chrome-origin dev"
   },
   "repository": {
     "type": "git",

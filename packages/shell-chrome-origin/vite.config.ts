@@ -7,7 +7,7 @@ export default defineConfig({
   base: './',
   resolve: {
     alias: {
-      '@': 'packages/shell-chrome/src',
+      '@': 'packages/shell-chrome-origin/src',
     },
   },
   plugins: [vue(), VueJsx({
