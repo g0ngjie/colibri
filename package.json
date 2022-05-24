@@ -7,7 +7,9 @@
   "scripts": {
     "watch": "pnpm -C ./packages/colibri-lib watch",
     "build": "pnpm -C ./packages/colibri-lib build & pnpm -C ./packages/shell-chrome build",
-    "clean:build": "rm -rf ./packages/colibri-lib/lib && rm -rf ./packages/shell-chrome/dist"
+    "build:lib": "pnpm -C ./packages/colibri-lib build",
+    "clean:build": "rm -rf ./packages/colibri-lib/lib && rm -rf ./packages/shell-chrome/dist",
+    "page": "pnpm -C ./packages/shell-chrome dev"
   },
   "repository": {
     "type": "git",
