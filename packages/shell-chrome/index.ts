@@ -1,1 +1,3 @@
-import { getNow } from "colibri-lib";
+import lib from "colibri-lib";
+
+console.log("[debug]lib:", lib)
