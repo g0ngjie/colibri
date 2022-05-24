@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "watch": "pnpm -C ./packages/colibri-lib watch & pnpm -C ./packages/shell-chrome dev"
+    "watch": "pnpm -C ./packages/colibri-lib watch"
   },
   "repository": {
     "type": "git",
