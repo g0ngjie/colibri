@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/g0ngjie/colibri#readme",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "typescript": "^4.6.4"
   }
 }
