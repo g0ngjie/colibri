@@ -1,13 +1,22 @@
 {
   "name": "colibri-lib",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "ajax interceptor lib",
+  "main": "lib/lib.umd.js",
+  "module": "lib/lib.module.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "rollup -w -c --environment FORMAT:umd",
+    "build:umd": "rollup -c --environment FORMAT:umd",
+    "build:min": "rollup -c --environment FORMAT:min",
+    "build:esm": "rollup -c --environment FORMAT:esm",
+    "build": "rm -rf lib/* && run-p build:umd build:min build:esm"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [],
-  "author": "",
+  "author": "Gj <gongjie0422@163.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.18.0",
