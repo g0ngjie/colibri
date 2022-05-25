@@ -1,0 +1,23 @@
+{
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "manifest_version": 3,
+  "icons": {
+    "16": "src/icons/128.png",
+    "48": "src/icons/128.png",
+    "128": "src/icons/128.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["src/content-scripts/index.js"],
+      "matches": ["https://www.google.com/*"]
+    }
+  ],
+  "incognito": "split"
+}
