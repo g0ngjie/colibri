@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
-import Text from "./components/test";
+import Test from "./components/test";
 
 export default defineComponent(() => {
-    return () => <Text></Text>
+    return () => <Test></Test>
 })
