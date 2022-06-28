@@ -1,0 +1,17 @@
+{
+  "name": "reactivity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "files": [
+    "lib",
+    "types"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

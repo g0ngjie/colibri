@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    /* 基础配置 */
+    "target": "ES6",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": false,
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    /* 强类型检查配置 */
+    "strict": true,
+    "noImplicitAny": false,
+    /* 模块分析配置 */
+    "baseUrl": ".",
+    "outDir": "./lib",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  }
+}
