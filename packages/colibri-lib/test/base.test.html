@@ -17,7 +17,11 @@
                 {
                     switch_on: true,
                     match_url: 'http://fakeapi.jsonparseronline.com/users/1',
-                    override: JSON.stringify({ ok: true, text: "拦截成功" }),
+                    override: JSON.stringify({ ok: true, text: "success" }),
+                }, {
+                    switch_on: true,
+                    match_url: 'http://fakeapi.jsonparseronline.com/posts/1',
+                    override: JSON.stringify({ ok: true, text: "success" }),
                 }
             ]
         })
@@ -32,6 +36,16 @@
         fetch("http://fakeapi.jsonparseronline.com/users/1")
             .then(response => response.text())
             .then(json => console.log(json, 'fetch'))
+
+
+        fetch("http://fakeapi.jsonparseronline.com/posts/1", {
+            "method": "DELETE",
+            "headers": {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(response => response.json())
+            .then(json => console.log(json, 'fetch delete'))
 
         // fetch("https://api.github.com/users/")
         //     .then(response => response.json())

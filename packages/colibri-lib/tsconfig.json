@@ -6,6 +6,7 @@
       "dom",
       "esnext"
     ],
+    "forceConsistentCasingInFileNames": true,
     "removeComments": false,
     "declaration": true,
     "declarationDir": "types",

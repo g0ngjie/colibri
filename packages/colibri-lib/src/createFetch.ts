@@ -8,8 +8,15 @@ export const OriginFetch = window.fetch.bind(window)
 // 初始化共享状态
 export const initFetchState = (state: IRef<IGlobalState>) => globalState = state
 
-function CustomFetch(input: RequestInfo, init?: RequestInit) {
-    return OriginFetch(input, init).then((response) => {
+function CustomFetch(...args): Promise<Response> {
+    let [resource, config] = args;
+    if (config) {
+        const reqInit: RequestInit = config
+        const method = reqInit?.method?.toUpperCase()
+        console.log("[debug]method:", method)
+    }
+    console.log("[debug]config:", config)
+    return OriginFetch(resource, config).then((response: Response) => {
         let txt;
         globalState.value.matching_content.forEach(target => {
             const { switch_on = true, match_url, override = "", filter_type } = target
