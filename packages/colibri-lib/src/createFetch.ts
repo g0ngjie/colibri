@@ -13,9 +13,7 @@ function CustomFetch(...args): Promise<Response> {
     if (config) {
         const reqInit: RequestInit = config
         const method = reqInit?.method?.toUpperCase()
-        console.log("[debug]method:", method)
     }
-    console.log("[debug]config:", config)
     return OriginFetch(resource, config).then((response: Response) => {
         let txt;
         globalState.value.matching_content.forEach(target => {
