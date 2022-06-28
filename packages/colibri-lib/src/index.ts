@@ -1,4 +1,4 @@
-import { ref } from "./reactivity";
+import { ref } from "@colibri/reactivity";
 import { IGlobalState, IMatchContent } from "./types";
 import CreateXHR, { initXHRState, OriginXHR } from "./createXHR";
 import CreateFetch, { initFetchState, OriginFetch } from "./createFetch";

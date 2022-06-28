@@ -10,9 +10,3 @@ export interface IGlobalState {
     switch_on: boolean;
     matching_content: IMatchContent[];
 }
-
-export interface IRef<T> {
-    readonly _is_ref: boolean
-    _value: T
-    value: T
-}

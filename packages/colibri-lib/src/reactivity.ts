@@ -1,4 +1,4 @@
-import { IRef } from "./types";
+import { IRef } from "@colibri/reactivity";
 
 //  定义一个reactiveHandler处理对象
 const reactiveHandler = {

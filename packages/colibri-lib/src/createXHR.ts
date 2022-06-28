@@ -1,5 +1,6 @@
 import { maybeMatching, notice } from "./common";
-import { IGlobalState, IRef } from "./types";
+import { IGlobalState } from "./types";
+import { IRef } from "@colibri/reactivity";
 
 // 共享状态
 let globalState: IRef<IGlobalState>

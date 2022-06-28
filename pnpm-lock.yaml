@@ -15,11 +15,14 @@ importers:
   packages/colibri-lib:
     specifiers:
       '@babel/core': ^7.18.0
+      '@colibri/reactivity': workspace:^1.0.0
       '@rollup/plugin-node-resolve': ^13.3.0
       lodash.merge: ^4.6.2
       rollup: ^2.74.1
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-typescript2: ^0.31.2
+    dependencies:
+      '@colibri/reactivity': link:../reactivity
     devDependencies:
       '@babel/core': 7.18.0
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.74.1
