@@ -55,7 +55,7 @@ class CustomXHR extends XMLHttpRequest {
                 if (method && method.toUpperCase() !== this.method) return
                 // 规则匹配
                 const matched = maybeMatching(this.responseURL, match_url, filter_type);
-                if (!matched) return
+                if (!matched) return // 退出当前循环
                 // 修改响应
                 this.responseText = override;
                 this.response = override;
@@ -91,10 +91,8 @@ class CustomXHR extends XMLHttpRequest {
 
     // 拦截监听
     private watchAndOverride() {
-
         // 获取原始XHR
         const xhr = new OriginXHR();
-
         for (let attr in xhr) {
             if (attr === "onreadystatechange") {
                 xhr.onreadystatechange = (...args) => {
@@ -111,7 +109,6 @@ class CustomXHR extends XMLHttpRequest {
                 };
                 continue;
             }
-
             // 其他属性重写
             this.overrideAttr(attr, xhr)
         }
