@@ -1,6 +1,11 @@
-export interface IRef<T> {
+interface IRef<T> {
     readonly _is_ref: boolean
     _value: T
+    value: T
+}
+
+export interface IRefImpl<T> extends IRef<T> {
+    readonly _value: T
     value: T
 }
 

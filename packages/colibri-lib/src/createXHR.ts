@@ -1,31 +1,45 @@
 import { maybeMatching, notice } from "./common";
 import { IGlobalState } from "./types";
-import { IRef } from "@colibri/reactivity";
+import { IRefImpl } from "@colibri/reactivity";
 
 // 共享状态
-let globalState: IRef<IGlobalState>
+let globalState: IRefImpl<IGlobalState>
 // XMLHttpRequest 副本
 export const OriginXHR = window.XMLHttpRequest;
 // 初始化共享状态
-export const initXHRState = (state: IRef<IGlobalState>) => globalState = state
+export const initXHRState = (state: IRefImpl<IGlobalState>) => globalState = state
 
 class CustomXHR extends XMLHttpRequest {
     // 响应内容
     responseText;
     // XHR 响应
     response: any;
+    // 请求协议
+    method: string = 'GET'
     // 消息锁
     private message_once_lock: boolean = false;
 
     constructor() {
         super();
         this.watchEffect()
+        const { open } = this
+        this.open = (
+            method: string,
+            url: string | URL,
+            async?: boolean,
+            username?: string | null,
+            password?: string | null,
+        ) => {
+            // 获取当前请求协议
+            this.method = method || 'GET'
+            open.apply(this, [method, url, async !== undefined ? async : true, username, password])
+        }
     }
 
     // 规则匹配，修改响应内容
     private maybeNeedModifyRes() {
         globalState.value.matching_content.forEach(target => {
-            const { switch_on = true, match_url, override = "", filter_type } = target
+            const { switch_on = true, match_url, override = "", filter_type, method } = target
             let matched: boolean = false;
             // 是否需要匹配
             if (switch_on && match_url) {
@@ -44,15 +58,38 @@ class CustomXHR extends XMLHttpRequest {
         });
     }
 
+    // 属性重写
+    private overrideAttr(attr: string, xhr: XMLHttpRequest) {
+        if (typeof xhr[attr] === "function") this[attr] = xhr[attr].bind(xhr);
+        else if (['responseText', 'response'].includes(attr))
+            // responseText和response 属性只读
+            // 缓存在对应 自定义 _[attr] 上
+            // https://juejin.cn/post/6844903470181384206
+            Object.defineProperty(this, attr, {
+                get: () =>
+                    this[`_${attr}`] == undefined ? xhr[attr] : this[`_${attr}`],
+                set: (val) => (this[`_${attr}`] = val),
+                enumerable: true,
+            });
+        else
+            Object.defineProperty(this, attr, {
+                get: () => xhr[attr],
+                set: (val) => (xhr[attr] = val),
+                enumerable: true,
+            });
+    }
+
+    // 拦截监听
     private watchEffect() {
+
+        // 获取原始XHR
         const xhr = new OriginXHR();
+
         for (let attr in xhr) {
             if (attr === "onreadystatechange") {
                 xhr.onreadystatechange = (...args) => {
-                    if (this.readyState == 4) {
-                        // 开启拦截
-                        this.maybeNeedModifyRes();
-                    }
+                    // 开启拦截
+                    if (this.readyState == 4) this.maybeNeedModifyRes();
                     this.onreadystatechange && this.onreadystatechange.apply(this, args);
                 };
                 continue;
@@ -65,25 +102,8 @@ class CustomXHR extends XMLHttpRequest {
                 continue;
             }
 
-            if (typeof xhr[attr] === "function") {
-                this[attr] = xhr[attr].bind(xhr);
-            } else {
-                // responseText和response不是writeable的，但拦截时需要修改它，所以修改就存储在this[`_${attr}`]上
-                if (['responseText', 'response'].includes(attr)) {
-                    Object.defineProperty(this, attr, {
-                        get: () =>
-                            this[`_${attr}`] == undefined ? xhr[attr] : this[`_${attr}`],
-                        set: (val) => (this[`_${attr}`] = val),
-                        enumerable: true,
-                    });
-                } else {
-                    Object.defineProperty(this, attr, {
-                        get: () => xhr[attr],
-                        set: (val) => (xhr[attr] = val),
-                        enumerable: true,
-                    });
-                }
-            }
+            // 其他属性重写
+            this.overrideAttr(attr, xhr)
         }
     }
 }

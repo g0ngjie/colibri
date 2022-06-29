@@ -1,13 +1,13 @@
 import { maybeMatching, notice } from "./common";
 import { IGlobalState } from "./types";
-import { IRef } from "@colibri/reactivity";
+import { IRefImpl } from "@colibri/reactivity";
 
 // 共享状态
-let globalState: IRef<IGlobalState>
+let globalState: IRefImpl<IGlobalState>
 // fetch 副本
 export const OriginFetch = window.fetch.bind(window)
 // 初始化共享状态
-export const initFetchState = (state: IRef<IGlobalState>) => globalState = state
+export const initFetchState = (state: IRefImpl<IGlobalState>) => globalState = state
 
 function CustomFetch(...args): Promise<Response> {
     let [resource, config] = args;
