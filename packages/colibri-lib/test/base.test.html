@@ -11,6 +11,8 @@
 <body>
     <script src="../lib/lib.umd.js"></script>
     <script>
+        // 测试基础拦截功能
+        // 
         lib.update({
             switch_on: true,
             matching_content: [
@@ -46,33 +48,6 @@
         })
             .then(response => response.json())
             .then(json => console.log(json, 'fetch delete'))
-
-        // fetch("https://api.github.com/users/")
-        //     .then(response => response.json())
-        //     .then(json => console.log(json))
-
-        // let flag = true
-        // setInterval(() => {
-        //     // lib.update({
-        //     //     switch_on: flag = !flag,
-        //     //     matching_content: [
-        //     //         {
-        //     //             switch_on: true,
-        //     //             match_url: 'http://fakeapi.jsonparseronline.com/users/1',
-        //     //             override: 'ddd',
-        //     //         }
-        //     //     ]
-        //     // })
-        //     lib.switchOn(flag = !flag)
-        //     const xhr = new XMLHttpRequest();
-        //     xhr.open('GET', 'http://fakeapi.jsonparseronline.com/users/1', true);
-        //     xhr.send();
-        //     xhr.onload = function () {
-        //         if (this.status === 200) {
-        //             console.log(this.responseText);
-        //         }
-        //     }
-        // }, 1000);
     </script>
 </body>
 
