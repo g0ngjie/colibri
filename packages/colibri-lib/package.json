@@ -1,5 +1,5 @@
 {
-  "name": "colibri-lib",
+  "name": "@colibri/lib",
   "version": "1.0.0",
   "description": "ajax interceptor lib",
   "main": "lib/lib.umd.js",
