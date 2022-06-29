@@ -15,13 +15,22 @@ class CustomXHR extends XMLHttpRequest {
     // XHR 响应
     response: any;
     // 请求协议
-    method: string = 'GET'
+    method = 'GET'
     // 消息锁
     private message_once_lock: boolean = false;
 
     constructor() {
         super();
-        this.watchEffect()
+        // 初始化原始XHR实例
+        // 将XHR属性赋值给Custom
+        // 重写 response & responseText
+        this.watchAndOverride()
+        // 拦截open，获取请求协议
+        this.getMethod()
+    }
+
+    // 获取请求协议
+    private getMethod() {
         const { open } = this
         this.open = (
             method: string,
@@ -31,7 +40,7 @@ class CustomXHR extends XMLHttpRequest {
             password?: string | null,
         ) => {
             // 获取当前请求协议
-            this.method = method || 'GET'
+            this.method = (method || 'GET').toUpperCase()
             open.apply(this, [method, url, async !== undefined ? async : true, username, password])
         }
     }
@@ -40,13 +49,14 @@ class CustomXHR extends XMLHttpRequest {
     private maybeNeedModifyRes() {
         globalState.value.matching_content.forEach(target => {
             const { switch_on = true, match_url, override = "", filter_type, method } = target
-            let matched: boolean = false;
             // 是否需要匹配
             if (switch_on && match_url) {
+                // 判断是否存在协议匹配
+                if (method && method.toUpperCase() !== this.method) return
                 // 规则匹配
-                matched = maybeMatching(this.responseURL, match_url, filter_type);
-            }
-            if (matched) {
+                const matched = maybeMatching(this.responseURL, match_url, filter_type);
+                if (!matched) return
+                // 修改响应
                 this.responseText = override;
                 this.response = override;
                 // 通知
@@ -80,7 +90,7 @@ class CustomXHR extends XMLHttpRequest {
     }
 
     // 拦截监听
-    private watchEffect() {
+    private watchAndOverride() {
 
         // 获取原始XHR
         const xhr = new OriginXHR();
