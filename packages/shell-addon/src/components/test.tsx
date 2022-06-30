@@ -1,6 +1,11 @@
 import { defineComponent } from "vue";
+import { useData } from "../store/data";
+import { NButton } from "naive-ui";
 
 export default defineComponent(() => {
 
-    return () => <div>test one</div>
+    const store = useData()
+    return () => <div>{store.title}test one
+        <NButton>btn</NButton>
+    </div>
 })
