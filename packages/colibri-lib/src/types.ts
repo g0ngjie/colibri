@@ -1,4 +1,5 @@
 export type IFilterType = "normal" | "regex";
+
 export interface IMatchContent {
     /**是否需要匹配 */
     switch_on: boolean;
@@ -17,4 +18,9 @@ export interface IGlobalState {
     switch_on: boolean;
     /**规则列表 */
     matching_content: IMatchContent[];
+}
+
+/**匹配规则数据映射 */
+export interface IMatchContentMap {
+    [match_url: string]: IMatchContent
 }

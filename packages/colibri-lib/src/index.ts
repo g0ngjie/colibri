@@ -1,5 +1,5 @@
 import { ref } from "@colibri/reactivity";
-import { IGlobalState, IMatchContent } from "./types";
+import { IGlobalState, IMatchContent, IMatchContentMap } from "./types";
 import CreateXHR, { initXHRState, OriginXHR } from "./createXHR";
 import CreateFetch, { initFetchState, OriginFetch } from "./createFetch";
 import { warn } from "./common";
@@ -62,4 +62,8 @@ initState()
 export default {
     update,
     switchOn,
+}
+
+export {
+    IMatchContentMap
 }
