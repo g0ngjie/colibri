@@ -18,6 +18,7 @@ export default defineComponent(() => {
         {
             title: "switch",
             minWidth: "70",
+            key: "",
             render: (row: any, index: number) => (
                 <NSwitch
                     size="small"
@@ -51,35 +52,36 @@ export default defineComponent(() => {
                 tooltip: true,
             },
         },
-        // {
-        //     title: "options",
-        //     width: "160",
-        //     fixed: "right",
-        //     render(row: any, index: number) {
-        //         return (
-        //             <>
-        //                 <NSpace>
-        //                     <NButton
-        //                         ghost
-        //                         size="tiny"
-        //                         type="info"
-        //                         onClick={() => editFn(row.id)}
-        //                     >
-        //                         edit
-        //                     </NButton>
-        //                     <NButton
-        //                         ghost
-        //                         type="error"
-        //                         size="tiny"
-        //                         onClick={() => delFn(row.id)}
-        //                     >
-        //                         delete
-        //                     </NButton>
-        //                 </NSpace>
-        //             </>
-        //         );
-        //     },
-        // },
+        {
+            title: "options",
+            width: "160",
+            key: "",
+            fixed: "right",
+            render(row: any, index: number) {
+                return (
+                    <>
+                        <NSpace>
+                            <NButton
+                                ghost
+                                size="tiny"
+                                type="info"
+                                onClick={() => editFn(row.id)}
+                            >
+                                edit
+                            </NButton>
+                            <NButton
+                                ghost
+                                type="error"
+                                size="tiny"
+                                onClick={() => delFn(row.id)}
+                            >
+                                delete
+                            </NButton>
+                        </NSpace>
+                    </>
+                );
+            },
+        },
     ];
 
     return () => <>
