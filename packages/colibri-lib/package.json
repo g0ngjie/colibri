@@ -16,7 +16,10 @@
     "lib"
   ],
   "keywords": [],
-  "author": "Gj <gongjie0422@163.com>",
+  "author": {
+    "name": "Gj",
+    "email": "gongjie0422@163.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.18.0",

@@ -11,6 +11,10 @@ export interface IMatchContent {
     filter_type?: IFilterType;
     /**请求协议 */
     method?: string;
+    /**备注 */
+    remarks?: string;
+    /**命中率 */
+    hit?: number;
 }
 
 export interface IGlobalState {

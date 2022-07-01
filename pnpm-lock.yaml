@@ -29,7 +29,7 @@ importers:
       lodash.merge: 4.6.2
       rollup: 2.74.1
       rollup-plugin-terser: 7.0.2_rollup@2.74.1
-      rollup-plugin-typescript2: 0.31.2_rollup@2.74.1
+      rollup-plugin-typescript2: 0.31.2_rollup@2.74.1+typescript@4.6.4
 
   packages/reactivity:
     specifiers: {}
@@ -2668,7 +2668,7 @@ packages:
       terser: 5.13.1
     dev: true
 
-  /rollup-plugin-typescript2/0.31.2_rollup@2.74.1:
+  /rollup-plugin-typescript2/0.31.2_rollup@2.74.1+typescript@4.6.4:
     resolution: {integrity: sha512-hRwEYR1C8xDGVVMFJQdEVnNAeWRvpaY97g5mp3IeLnzhNXzSVq78Ye/BJ9PAaUfN4DXa/uDnqerifMOaMFY54Q==}
     peerDependencies:
       rollup: '>=1.26.3'
@@ -2681,6 +2681,7 @@ packages:
       resolve: 1.22.0
       rollup: 2.74.1
       tslib: 2.4.0
+      typescript: 4.6.4
     dev: true
 
   /rollup/2.74.1:
