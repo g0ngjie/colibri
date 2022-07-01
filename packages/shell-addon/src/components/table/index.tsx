@@ -16,7 +16,7 @@ export default defineComponent(() => {
 
     const createColumns = ({ delFn, editFn, switchFn }: ITableOptions): DataTableColumns<IMatchContent> => [
         {
-            title: "switch",
+            title: "status",
             minWidth: "70",
             key: "",
             render: (row: any, index: number) => (
