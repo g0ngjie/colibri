@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "watch": "tsc -w",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "ts-node test/index.ts"
   },
   "files": [
     "lib",
@@ -13,5 +14,8 @@
   ],
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.8.1"
+  }
 }
