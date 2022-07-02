@@ -1,0 +1,28 @@
+{
+  "name": "@colibri/lib.v2",
+  "version": "1.0.0",
+  "description": "ajax interceptor lib",
+  "main": "lib/lib.umd.js",
+  "module": "lib/lib.module.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "watch": "vite build --watch",
+    "build": "rm -rf types && rm -rf lib && tsc && vite build"
+  },
+  "files": [
+    "lib",
+    "types"
+  ],
+  "keywords": [],
+  "author": {
+    "name": "Gj",
+    "email": "gongjie0422@163.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^2.9.13"
+  },
+  "dependencies": {
+    "@vue/reactivity": "^3.2.37"
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../lib/index.umd.js"></script>
+    <script>
+        // 测试基础拦截功能
+        // 
+        lib.update({
+            switch_on: true,
+            matching_content: [
+                {
+                    switch_on: true,
+                    match_url: 'http://fakeapi.jsonparseronline.com/users/1',
+                    override: JSON.stringify({ ok: true, text: "success" }),
+                }, {
+                    switch_on: true,
+                    match_url: 'http://fakeapi.jsonparseronline.com/posts/1',
+                    override: JSON.stringify({ ok: true, text: "success" }),
+                }
+            ]
+        })
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://fakeapi.jsonparseronline.com/users/1', true);
+        xhr.send();
+        xhr.onload = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(this.responseText, 'xhr');
+            }
+        }
+        fetch("http://fakeapi.jsonparseronline.com/users/1")
+            .then(response => response.text())
+            .then(json => console.log(json, 'fetch'))
+
+
+        fetch("http://fakeapi.jsonparseronline.com/posts/1", {
+            "method": "DELETE",
+            "headers": {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(response => response.json())
+            .then(json => console.log(json, 'fetch delete'))
+    </script>
+</body>
+
+</html>

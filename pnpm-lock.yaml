@@ -31,6 +31,15 @@ importers:
       rollup-plugin-terser: 7.0.2_rollup@2.74.1
       rollup-plugin-typescript2: 0.31.2_rollup@2.74.1+typescript@4.6.4
 
+  packages/colibri-lib.v2:
+    specifiers:
+      '@vue/reactivity': ^3.2.37
+      vite: ^2.9.13
+    dependencies:
+      '@vue/reactivity': 3.2.37
+    devDependencies:
+      vite: 2.9.13
+
   packages/reactivity:
     specifiers:
       ts-node: ^10.8.1
@@ -973,6 +982,12 @@ packages:
     dependencies:
       '@vue/shared': 3.2.36
 
+  /@vue/reactivity/3.2.37:
+    resolution: {integrity: sha512-/7WRafBOshOc6m3F7plwzPeCu/RCVv9uMpOwa/5PiY1Zz+WLVRWiy0MYKwmg19KBdGtFWsmZ4cD+LOdVPcs52A==}
+    dependencies:
+      '@vue/shared': 3.2.37
+    dev: false
+
   /@vue/runtime-core/3.2.36:
     resolution: {integrity: sha512-PTWBD+Lub+1U3/KhbCExrfxyS14hstLX+cBboxVHaz+kXoiDLNDEYAovPtxeTutbqtClIXtft+wcGdC+FUQ9qQ==}
     dependencies:
@@ -1000,6 +1015,10 @@ packages:
 
   /@vue/shared/3.2.36:
     resolution: {integrity: sha512-JtB41wXl7Au3+Nl3gD16Cfpj7k/6aCroZ6BbOiCMFCMvrOpkg/qQUXTso2XowaNqBbnkuGHurLAqkLBxNGc1hQ==}
+
+  /@vue/shared/3.2.37:
+    resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
+    dev: false
 
   /@webcomponents/custom-elements/1.5.0:
     resolution: {integrity: sha512-c+7jPQCs9h/BYVcZ2Kna/3tsl3A/9EyXfvWjp5RiTDm1OpTcbZaCa1z4RNcTe/hUtXaqn64JjNW1yrWT+rZ8gg==}
@@ -3121,6 +3140,30 @@ packages:
     dependencies:
       evtd: 0.2.3
       vue: 3.2.36
+    dev: true
+
+  /vite/2.9.13:
+    resolution: {integrity: sha512-AsOBAaT0AD7Mhe8DuK+/kE4aWYFMx/i0ZNi98hJclxb4e0OhQcZYUrvLjIaQ8e59Ui7txcvKMiJC1yftqpQoDw==}
+    engines: {node: '>=12.2.0'}
+    hasBin: true
+    peerDependencies:
+      less: '*'
+      sass: '*'
+      stylus: '*'
+    peerDependenciesMeta:
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+    dependencies:
+      esbuild: 0.14.39
+      postcss: 8.4.14
+      resolve: 1.22.0
+      rollup: 2.74.1
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /vite/2.9.9:

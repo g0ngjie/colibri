@@ -1,17 +1,17 @@
 import { maybeMatching, notice } from "./common";
 import { IGlobalState } from "./types";
-import { IRefImpl } from "@colibri/reactivity";
+import { Ref } from "@vue/reactivity";
 
 // 共享状态
-let globalState: IRefImpl<IGlobalState>
+let globalState: Ref<IGlobalState>
 // XMLHttpRequest 副本
 export const OriginXHR = window.XMLHttpRequest;
 // 初始化共享状态
-export const initXHRState = (state: IRefImpl<IGlobalState>) => globalState = state
+export const initXHRState = (state: Ref<IGlobalState>) => globalState = state
 
 class CustomXHR extends XMLHttpRequest {
     // 响应内容
-    responseText;
+    responseText!: string;
     // XHR 响应
     response: any;
     // 请求协议
@@ -69,20 +69,25 @@ class CustomXHR extends XMLHttpRequest {
     }
 
     // 属性重写
-    private overrideAttr(attr: string, xhr: XMLHttpRequest) {
+    private overrideAttr(attr: keyof XMLHttpRequest, xhr: XMLHttpRequest) {
+        // 重写属性
+        // @ts-ignore
         if (typeof xhr[attr] === "function") this[attr] = xhr[attr].bind(xhr);
         else if (['responseText', 'response'].includes(attr))
             // responseText和response 属性只读
             // 缓存在对应 自定义 _[attr] 上
             Object.defineProperty(this, attr, {
                 get: () =>
+                    // @ts-ignore
                     this[`_${attr}`] == undefined ? xhr[attr] : this[`_${attr}`],
+                // @ts-ignore
                 set: (val) => (this[`_${attr}`] = val),
                 enumerable: true,
             });
         else
             Object.defineProperty(this, attr, {
                 get: () => xhr[attr],
+                // @ts-ignore
                 set: (val) => (xhr[attr] = val),
                 enumerable: true,
             });
@@ -109,6 +114,7 @@ class CustomXHR extends XMLHttpRequest {
                 continue;
             }
             // 其他属性重写
+            // @ts-ignore
             this.overrideAttr(attr, xhr)
         }
     }
