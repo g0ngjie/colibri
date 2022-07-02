@@ -12,7 +12,8 @@
     "@colibri/lib.v2": "workspace:^1.0.0",
     "@colibri/shared-utils": "workspace:^1.0.0",
     "pinia": "^2.0.14",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-i18n": "^9.1.10"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",

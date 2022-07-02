@@ -33,3 +33,8 @@ export enum HookEvents {
    */
   FLASH_UPDATE = '_flash-update',
 }
+
+// storage enums
+export enum StorageKeys {
+  LANGUAGE = 'colibri:storage:language',
+}

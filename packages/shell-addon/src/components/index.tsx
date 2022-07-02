@@ -1,7 +1,14 @@
 import { defineComponent } from "vue";
+import Toolbar from "./toolbar";
 import Table from "./table";
+import { NSpace } from 'naive-ui'
 
 export default defineComponent(() => {
 
-    return () => <><Table /></>
+    return () => <>
+        <NSpace vertical>
+            <Toolbar />
+            <Table />
+        </NSpace>
+    </>
 })

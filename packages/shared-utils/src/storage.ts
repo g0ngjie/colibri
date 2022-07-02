@@ -27,7 +27,7 @@ export function getStorage(key: string, defaultValue: any = null) {
     return getDefaultValue(storageData[key], defaultValue)
   } else {
     try {
-      return getDefaultValue(JSON.parse(localStorage.getItem(key) || ""), defaultValue)
+      return getDefaultValue(JSON.parse(localStorage.getItem(key) as any), defaultValue)
     } catch (e) { }
   }
 }
