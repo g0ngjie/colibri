@@ -53,6 +53,7 @@ importers:
     specifiers:
       '@colibri/lib.v2': workspace:^1.0.0
       '@colibri/shared-utils': workspace:^1.0.0
+      '@vicons/fluent': ^0.12.0
       '@vitejs/plugin-vue': ^2.3.3
       '@vitejs/plugin-vue-jsx': ^1.3.10
       naive-ui: 2.30.8
@@ -70,6 +71,7 @@ importers:
       vue: 3.2.36
       vue-i18n: 9.1.10_vue@3.2.36
     devDependencies:
+      '@vicons/fluent': 0.12.0
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.36
       '@vitejs/plugin-vue-jsx': 1.3.10
       naive-ui: 2.30.8_vue@3.2.36
@@ -874,6 +876,10 @@ packages:
       '@unocss/transformer-directives': 0.42.0
       magic-string: 0.26.2
       vite: 2.9.9
+    dev: true
+
+  /@vicons/fluent/0.12.0:
+    resolution: {integrity: sha512-ATCiqPuiJ6RI5GBlD3BIpZ9Xw4MsCA4RpI5oR6MCti4quS4mX1Gp6N74FCzw7lgOj+80rV4HMKhZTVInwimpVQ==}
     dev: true
 
   /@vitejs/plugin-react/1.3.2:
