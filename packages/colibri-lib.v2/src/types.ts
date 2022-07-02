@@ -15,6 +15,8 @@ export interface IMatchContent {
     remarks?: string;
     /**命中率 */
     hit?: number;
+    /**标题 */
+    title?: string;
 }
 
 export interface IGlobalState {

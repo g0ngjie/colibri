@@ -1,8 +1,8 @@
 import { defineComponent } from "vue";
-import { useData } from "../../store/data";
+import { useData } from "../store/data";
 import { NButton, NDataTable, NSpace, NSwitch } from "naive-ui";
 import type { DataTableColumns } from "naive-ui"
-import { IMatchContent } from "@colibri/lib/lib/types";
+import { IMatchContent } from "@colibri/lib.v2/types/types";
 
 interface ITableOptions {
     delFn: (url: string) => void;
@@ -37,20 +37,25 @@ export default defineComponent(() => {
             },
         },
         {
-            title: "globalKey",
+            title: "match",
             minWidth: "100",
-            key: "globalKey",
+            key: "match_url",
             ellipsis: {
                 tooltip: true,
             },
         },
         {
-            title: "description",
+            title: "remarks",
             minWidth: "150",
-            key: "description",
+            key: "remarks",
             ellipsis: {
                 tooltip: true,
             },
+        },
+        {
+            title: "hit",
+            minWidth: "150",
+            key: "hit",
         },
         {
             title: "options",

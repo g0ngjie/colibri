@@ -1,8 +1,8 @@
 
 import { computed, onMounted, ref } from "vue";
 import { defineStore } from "pinia";
-import { IMatchContentMap } from "@colibri/lib";
-import { IMatchContent } from "@colibri/lib/lib/types";
+import { IMatchContentMap } from "@colibri/lib.v2";
+import { IMatchContent } from "@colibri/lib.v2/types/types";
 
 export const useData = defineStore('data', () => {
     const title = ref<string>("标题: ")

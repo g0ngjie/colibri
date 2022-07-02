@@ -61,7 +61,7 @@ importers:
 
   packages/shell-addon:
     specifiers:
-      '@colibri/lib': workspace:^1.0.0
+      '@colibri/lib.v2': workspace:^1.0.0
       '@vitejs/plugin-vue': ^2.3.3
       '@vitejs/plugin-vue-jsx': ^1.3.10
       naive-ui: 2.30.8
@@ -72,7 +72,7 @@ importers:
       vue: ^3.2.25
       vue-tsc: ^0.34.7
     dependencies:
-      '@colibri/lib': link:../colibri-lib
+      '@colibri/lib.v2': link:../colibri-lib.v2
       pinia: 2.0.14_typescript@4.6.4+vue@3.2.36
       vue: 3.2.36
     devDependencies:

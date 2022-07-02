@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import Table from "./table/index";
+import Table from "./table";
 
 export default defineComponent(() => {
 

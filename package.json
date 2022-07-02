@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "run-p watch:lib watch:page",
-    "watch:lib": "pnpm -C ./packages/colibri-lib watch",
+    "watch:lib": "pnpm -C ./packages/colibri-lib.v2 watch",
     "watch:page": "pnpm -C ./packages/shell-chrome watch",
     "build": "run-p build:reactivity build:lib",
     "build:reactivity": "pnpm -C ./packages/reactivity build",
