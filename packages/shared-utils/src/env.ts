@@ -17,20 +17,3 @@ export const keys = {
   enter: 'Enter',
   esc: 'Esc',
 }
-
-export function initEnv (Vue) {
-  if (Vue.prototype.hasOwnProperty('$isChrome')) return
-
-  Object.defineProperties(Vue.prototype, {
-    $isChrome: { get: () => isChrome },
-    $isFirefox: { get: () => isFirefox },
-    $isWindows: { get: () => isWindows },
-    $isMac: { get: () => isMac },
-    $isLinux: { get: () => isLinux },
-    $keys: { get: () => keys },
-  })
-
-  if (isWindows) document.body.classList.add('platform-windows')
-  if (isMac) document.body.classList.add('platform-mac')
-  if (isLinux) document.body.classList.add('platform-linux')
-}

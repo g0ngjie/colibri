@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vue-devtools/shared-utils": "workspace:^0.0.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {

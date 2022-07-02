@@ -7,10 +7,10 @@ const useStorage = typeof target.chrome !== 'undefined' && typeof target.chrome.
 
 let storageData
 
-export function initStorage (): Promise<void> {
+export function initStorage(): Promise<void> {
   return new Promise((resolve) => {
     if (useStorage) {
-      target.chrome.storage.local.get(null, result => {
+      target.chrome.storage.sync.get(null, result => {
         storageData = result
         resolve()
       })
@@ -21,60 +21,60 @@ export function initStorage (): Promise<void> {
   })
 }
 
-export function getStorage (key: string, defaultValue: any = null) {
+export function getStorage(key: string, defaultValue: any = null) {
   checkStorage()
   if (useStorage) {
     return getDefaultValue(storageData[key], defaultValue)
   } else {
     try {
       return getDefaultValue(JSON.parse(localStorage.getItem(key) || ""), defaultValue)
-    } catch (e) {}
+    } catch (e) { }
   }
 }
 
-export function setStorage (key: string, val: any) {
+export function setStorage(key: string, val: any) {
   checkStorage()
   if (useStorage) {
     storageData[key] = val
-    target.chrome.storage.local.set({ [key]: val })
+    target.chrome.storage.sync.set({ [key]: val })
   } else {
     try {
       localStorage.setItem(key, JSON.stringify(val))
-    } catch (e) {}
+    } catch (e) { }
   }
 }
 
-export function removeStorage (key: string) {
+export function removeStorage(key: string) {
   checkStorage()
   if (useStorage) {
     delete storageData[key]
-    target.chrome.storage.local.remove([key])
+    target.chrome.storage.sync.remove([key])
   } else {
     try {
       localStorage.removeItem(key)
-    } catch (e) {}
+    } catch (e) { }
   }
 }
 
-export function clearStorage () {
+export function clearStorage() {
   checkStorage()
   if (useStorage) {
     storageData = {}
-    target.chrome.storage.local.clear()
+    target.chrome.storage.sync.clear()
   } else {
     try {
       localStorage.clear()
-    } catch (e) {}
+    } catch (e) { }
   }
 }
 
-function checkStorage () {
+function checkStorage() {
   if (!storageData) {
     throw new Error('Storage wasn\'t initialized with \'init()\'')
   }
 }
 
-function getDefaultValue (value, defaultValue) {
+function getDefaultValue(value, defaultValue) {
   if (value == null) {
     return defaultValue
   }
