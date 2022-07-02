@@ -7,7 +7,7 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "watch": "vite build --watch",
-    "build": "rm -rf types && rm -rf lib && tsc && vite build"
+    "build": "rm -rf types lib && tsc && vite build"
   },
   "files": [
     "lib",
