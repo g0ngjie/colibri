@@ -17,12 +17,6 @@ export default defineConfig({
           dir: resolve(__dirname, 'lib'),
         },
         {
-          format: 'umd',
-          entryFileNames: '[name].umd.min.js',
-          sourcemap: true,
-          dir: resolve(__dirname, 'lib'),
-        },
-        {
           format: 'esm',
           entryFileNames: '[name].esm.js',
           sourcemap: true,

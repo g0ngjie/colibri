@@ -2,8 +2,8 @@
   "name": "@colibri/lib.v2",
   "version": "1.0.0",
   "description": "ajax interceptor lib",
-  "main": "lib/lib.umd.js",
-  "module": "lib/lib.module.js",
+  "main": "lib/index.umd.js",
+  "module": "lib/index.esm.js",
   "typings": "types/index.d.ts",
   "scripts": {
     "watch": "vite build --watch",
