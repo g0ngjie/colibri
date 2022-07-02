@@ -10,6 +10,8 @@
     "types": [
       "node"
     ],
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
     "preserveWatchOutput": true,
     // Strict
