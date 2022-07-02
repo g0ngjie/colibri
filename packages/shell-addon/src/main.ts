@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from "pinia";
+import "./hooks/initStore";
 import i18n from "./locales";
 import App from './App'
 import 'uno.css'
