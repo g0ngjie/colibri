@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@colibri/lib.v2": "workspace:^1.0.0",
+    "@colibri/shared-utils": "workspace:^1.0.0",
     "pinia": "^2.0.14",
     "vue": "^3.2.25"
   },
