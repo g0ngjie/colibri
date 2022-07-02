@@ -7,6 +7,8 @@ import zhCN from "./zh_CN";
 export default createI18n({
     locale: "en",
     allowComposition: true, // you need to specify that!
+    legacy: false,
+    globalInjection: true,
     messages: {
         'zh-CN': { ...zhCN },
         'en': { ...en }
