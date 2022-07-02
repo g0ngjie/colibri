@@ -5,7 +5,7 @@ import { target } from './env'
 // storageData object
 const useStorage = typeof target.chrome !== 'undefined' && typeof target.chrome.storage !== 'undefined'
 
-let storageData = null
+let storageData
 
 export function initStorage (): Promise<void> {
   return new Promise((resolve) => {
@@ -27,7 +27,7 @@ export function getStorage (key: string, defaultValue: any = null) {
     return getDefaultValue(storageData[key], defaultValue)
   } else {
     try {
-      return getDefaultValue(JSON.parse(localStorage.getItem(key)), defaultValue)
+      return getDefaultValue(JSON.parse(localStorage.getItem(key) || ""), defaultValue)
     } catch (e) {}
   }
 }

@@ -6,8 +6,10 @@
   "module": "lib/index.esm.js",
   "typings": "types/index.d.ts",
   "scripts": {
-    "watch": "vite build --watch",
-    "build": "rm -rf types lib && tsc && vite build"
+    "watch": "run-p watch:ts watch:vite",
+    "build": "rm -rf types lib && tsc && vite build",
+    "watch:ts": "tsc --watch",
+    "watch:vite": "vite build --watch"
   },
   "files": [
     "lib",
