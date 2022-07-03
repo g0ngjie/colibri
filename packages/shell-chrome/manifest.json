@@ -1,42 +1,36 @@
 {
-    "name": "Bad Request",
-    "version": "0.0.0",
-    "description": "Bad Request",
-    "permissions": [
-        "activeTab",
-        "declarativeContent",
-        "storage",
-        "webRequest",
-        "webRequestBlocking",
+  "manifest_version": 3,
+  "name": "Colibri",
+  "version": "1.0.1",
+  "description": "ajax proxy v2",
+  "author": "Gj",
+  "content_scripts": [
+    {
+      "matches": [
         "<all_urls>"
-    ],
-    "background": {
-        "page": "background/index.html",
-        "persistent": true
-    },
-    "options_page": "options/index.html",
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-    "page_action": {
-        "default_title": "request",
-        "default_icon": "images/logo.png",
-        "default_popup": "popup/index.html"
-    },
-    "devtools_page": "devtool/index.html",
-    "icons": {
-        "16": "images/logo.png",
-        "32": "images/logo.png",
-        "48": "images/logo.png",
-        "128": "images/logo.png"
-    },
-    "manifest_version": 2,
-    "content_scripts": [
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "content.js"
-            ]
-        }
-    ]
+      ],
+      "js": [
+        "build/content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
 }

@@ -82,22 +82,12 @@ importers:
 
   packages/shell-chrome:
     specifiers:
-      '@vitejs/plugin-vue': ^2.3.3
-      '@vitejs/plugin-vue-jsx': ^1.3.10
-      naive-ui: ^2.29.0
-      sass: ^1.52.1
-      typescript: ^4.5.4
-      vite: ^2.9.9
-      vue: ^3.2.25
+      '@colibri/shared-utils': workspace:^1.0.0
+      vite: ^2.9.13
     dependencies:
-      vue: 3.2.36
+      '@colibri/shared-utils': link:../shared-utils
     devDependencies:
-      '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.36
-      '@vitejs/plugin-vue-jsx': 1.3.10
-      naive-ui: 2.29.0_vue@3.2.36
-      sass: 1.52.1
-      typescript: 4.6.4
-      vite: 2.9.9_sass@1.52.1
+      vite: 2.9.13
 
   packages/shell-chrome-origin:
     specifiers:
