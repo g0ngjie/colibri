@@ -9,8 +9,6 @@ const staticFiles = ['manifest.json', 'icons'].map(file => {
     }
 });
 
-console.log("[debug]staticFiles:", staticFiles)
-
 export default defineConfig({
     build: {
         rollupOptions: {
