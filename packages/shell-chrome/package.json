@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf build && vite build"
+    "build": "rm -rf build && vite build",
+    "watch": "vite build --watch"
   },
   "keywords": [],
   "author": {

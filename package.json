@@ -5,24 +5,26 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "pnpm -C ./packages/shell-addon dev",
     "watch": "run-p watch:lib watch:page",
     "watch:lib": "pnpm -C ./packages/colibri-lib.v2 watch",
     "watch:page": "pnpm -C ./packages/shell-chrome watch",
-    "build": "run-p build:reactivity build:lib",
-    "build:reactivity": "pnpm -C ./packages/reactivity build",
-    "build:lib": "pnpm -C ./packages/colibri-lib build",
+    "build": "run-p build:utils build:lib build:page",
+    "build:lib": "pnpm -C ./packages/colibri-lib.v2 build",
     "build:utils": "pnpm -C ./packages/shared-utils build",
     "build:page": "pnpm -C ./packages/shell-chrome build",
-    "clean:build": "rm -rf ./packages/colibri-lib/lib && rm -rf ./packages/shell-chrome/dist",
-    "page": "pnpm -C ./packages/shell-chrome dev"
+    "clean:build": "rm -rf ./packages/colibri-lib.v2/lib ./packages/shell-chrome/build ./packages/shared-utils/lib"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/g0ngjie/colibri.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Gj",
+    "email": "gongjie0422@163.com"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/g0ngjie/colibri/issues"
   },
