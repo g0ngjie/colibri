@@ -84,10 +84,12 @@ importers:
     specifiers:
       '@colibri/shared-utils': workspace:^1.0.0
       vite: ^2.9.13
+      vite-plugin-static-copy: ^0.6.0
     dependencies:
       '@colibri/shared-utils': link:../shared-utils
     devDependencies:
       vite: 2.9.13
+      vite-plugin-static-copy: 0.6.0_vite@2.9.13
 
   packages/shell-chrome-origin:
     specifiers:
@@ -3169,6 +3171,19 @@ packages:
     dependencies:
       evtd: 0.2.3
       vue: 3.2.36
+    dev: true
+
+  /vite-plugin-static-copy/0.6.0_vite@2.9.13:
+    resolution: {integrity: sha512-KfNhy33p//M5Fq1RcZU+H+1KVagXR9JbAy6KIE8IiWj2j3wRtRPoyh8TYJvVgC+adyKj3Y+KiGUf0GwjI9JHtg==}
+    engines: {node: '>=12.2'}
+    peerDependencies:
+      vite: ^2.6.14
+    dependencies:
+      chokidar: 3.5.3
+      fast-glob: 3.2.11
+      fs-extra: 10.1.0
+      picocolors: 1.0.0
+      vite: 2.9.13
     dev: true
 
   /vite/2.9.13:

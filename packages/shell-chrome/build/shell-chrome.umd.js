@@ -1,1 +1,0 @@
-(function(e){typeof define=="function"&&define.amd?define(e):e()})(function(){"use strict";console.log("Colibri content.js"),window.chrome.storage.sync.set({test:!1}),window.chrome.storage.sync.get(null,e=>{console.log("[debug]result:",e)})});
