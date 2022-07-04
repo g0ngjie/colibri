@@ -21,6 +21,13 @@ export default defineConfig({
             },
         },
         outDir: resolve(__dirname, "build"),
+        terserOptions: {
+            compress: {
+                // 生产移除console
+                drop_console: true,
+                drop_debugger: true
+            }
+        }
     },
     plugins: [
         viteStaticCopy({

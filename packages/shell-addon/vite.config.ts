@@ -2,11 +2,19 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from 'unocss/vite'
-import { presetAttributify, presetUno, presetIcons } from "unocss";
+import { presetAttributify, presetUno } from "unocss";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
+  build: {
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      }
+    }
+  },
   plugins: [
     vue(),
     VueJsx({
@@ -17,7 +25,6 @@ export default defineConfig({
       presets: [
         presetUno(),
         presetAttributify(),
-        presetIcons()
       ]
     })
   ]
