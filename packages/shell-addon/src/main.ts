@@ -1,8 +1,13 @@
 import { createApp } from 'vue'
 import { createPinia } from "pinia";
-import "./hooks/initStore";
 import i18n from "./locales";
 import App from './App'
 import 'uno.css'
 
-createApp(App).use(i18n).use(createPinia()).mount('#app')
+import { initStorage } from "@colibri/shared-utils";
+initStorage()
+    .then(() => createApp(App)
+        .use(i18n)
+        .use(createPinia())
+        .mount('#app')
+    )
