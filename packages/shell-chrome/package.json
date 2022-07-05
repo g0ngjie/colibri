@@ -1,5 +1,5 @@
 {
-  "name": "shell-chrome",
+  "name": "@colibri/shell-chrome",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
