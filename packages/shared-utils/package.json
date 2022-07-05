@@ -5,8 +5,9 @@
   "description": "",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
-  "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.0.1"
+  },
   "scripts": {
     "watch": "tsc -w",
     "build": "rm -rf lib types && tsc"

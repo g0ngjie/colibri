@@ -32,7 +32,10 @@ importers:
       vite: 2.9.13
 
   packages/shared-utils:
-    specifiers: {}
+    specifiers:
+      '@types/node': ^18.0.1
+    devDependencies:
+      '@types/node': 18.0.1
 
   packages/shell-addon:
     specifiers:
@@ -568,6 +571,10 @@ packages:
 
   /@types/node/17.0.35:
     resolution: {integrity: sha512-vu1SrqBjbbZ3J6vwY17jBs8Sr/BKA+/a/WtjRG+whKg1iuLFOosq872EXS0eXWILdO36DHQQeku/ZcL6hz2fpg==}
+    dev: true
+
+  /@types/node/18.0.1:
+    resolution: {integrity: sha512-CmR8+Tsy95hhwtZBKJBs0/FFq4XX7sDZHlGGf+0q+BRZfMbOTkzkj0AFAuTyXbObDIoanaBBW0+KEW+m3N16Wg==}
     dev: true
 
   /@unocss/cli/0.42.0:
