@@ -14,7 +14,7 @@
     "build:page": "pnpm -C ./packages/shell-chrome build",
     "clean:build": "rm -rf ./packages/colibri-lib.v2/lib ./packages/shell-chrome/build ./packages/shared-utils/lib",
     "release": "node release.js",
-    "pkg": "cp -r ./packages/shell-addon/dist ./packages/shell-chrome/build/popups",
+    "pkg": "rm -rf ./packages/shell-chrome/build/popups && cp -r ./packages/shell-addon/dist ./packages/shell-chrome/build/popups",
     "zip": "node ./extension-zips.js"
   },
   "repository": {
