@@ -4,18 +4,18 @@
   "description": "ajax proxy v2",
   "version": "1.0.0",
   "scripts": {
-    "dev": "pnpm -C ./packages/shell-addon dev",
+    "dev": "pnpm -C ./packages/shell-popup dev",
     "watch": "run-p watch:lib watch:page",
     "watch:lib": "pnpm -C ./packages/colibri-lib.v2 watch",
     "watch:page": "pnpm -C ./packages/shell-chrome watch",
-    "build": "run-s clean:build build:utils build:lib build:chrome build:popups pkg",
+    "build": "run-s clean:build build:utils build:lib build:chrome build:popup pkg",
     "build:lib": "pnpm -C ./packages/colibri-lib.v2 build",
     "build:utils": "pnpm -C ./packages/shared-utils build",
     "build:chrome": "pnpm -C ./packages/shell-chrome build",
-    "build:popups": "pnpm -C ./packages/shell-addon build",
+    "build:popup": "pnpm -C ./packages/shell-popup build",
     "clean:build": "rm -rf ./packages/colibri-lib.v2/lib ./packages/shell-chrome/build ./packages/shared-utils/lib",
     "release": "node release.js",
-    "pkg": "rm -rf ./packages/shell-chrome/build/popups && cp -r ./packages/shell-addon/dist ./packages/shell-chrome/build/popups",
+    "pkg": "rm -rf ./packages/shell-chrome/build/popups && cp -r ./packages/shell-popup/dist ./packages/shell-chrome/build/popups",
     "zip": "node ./extension-zips.js"
   },
   "repository": {
