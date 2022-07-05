@@ -5,9 +5,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "pnpm -C ./packages/shell-popup dev",
-    "watch": "run-p watch:lib watch:page",
+    "watch": "run-p watch:lib watch:chrome",
     "watch:lib": "pnpm -C ./packages/colibri-lib.v2 watch",
-    "watch:page": "pnpm -C ./packages/shell-chrome watch",
+    "watch:chrome": "pnpm -C ./packages/shell-chrome watch",
     "build": "run-s clean:build build:utils build:lib build:chrome build:popup pkg",
     "build:lib": "pnpm -C ./packages/colibri-lib.v2 build",
     "build:utils": "pnpm -C ./packages/shared-utils build",
