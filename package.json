@@ -1,9 +1,8 @@
 {
   "name": "colibri",
-  "private": false,
+  "private": true,
   "description": "ajax proxy v2",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "dev": "pnpm -C ./packages/shell-addon dev",
     "watch": "run-p watch:lib watch:page",
