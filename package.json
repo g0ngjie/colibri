@@ -8,7 +8,7 @@
     "watch": "run-p watch:lib watch:page",
     "watch:lib": "pnpm -C ./packages/colibri-lib.v2 watch",
     "watch:page": "pnpm -C ./packages/shell-chrome watch",
-    "build": "run-p build:utils build:lib build:page",
+    "build": "run-s build:utils build:lib build:page",
     "build:lib": "pnpm -C ./packages/colibri-lib.v2 build",
     "build:utils": "pnpm -C ./packages/shared-utils build",
     "build:page": "pnpm -C ./packages/shell-chrome build",
