@@ -14,7 +14,8 @@
     "build:utils": "pnpm -C ./packages/shared-utils build",
     "build:page": "pnpm -C ./packages/shell-chrome build",
     "clean:build": "rm -rf ./packages/colibri-lib.v2/lib ./packages/shell-chrome/build ./packages/shared-utils/lib",
-    "pkg": "cp -r ./packages/shell-addon/dist ./packages/shell-chrome/build/popups"
+    "pkg": "cp -r ./packages/shell-addon/dist ./packages/shell-chrome/build/popups",
+    "release": "node release.js"
   },
   "repository": {
     "type": "git",
@@ -31,8 +32,10 @@
   },
   "homepage": "https://github.com/g0ngjie/colibri#readme",
   "devDependencies": {
+    "inquirer": "6.2.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
+    "semver": "^7.3.7",
     "typescript": "^4.6.4"
   }
 }

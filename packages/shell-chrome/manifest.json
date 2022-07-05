@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Colibri",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "ajax proxy v2",
   "author": "Gj",
   "content_scripts": [
