@@ -6,7 +6,7 @@ ajax proxy v2
 
 ```shell
 # 全局依赖
-pnpm install typescript -D -W
+pnpm install typescript -D -w
 # 局部依赖
 pnpm install -D rollup -r --filter colibri-lib
 # link 机制
