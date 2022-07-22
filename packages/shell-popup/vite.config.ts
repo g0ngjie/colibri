@@ -8,6 +8,7 @@ import { presetAttributify, presetUno } from "unocss";
 export default defineConfig({
   base: './',
   build: {
+    minify: "terser",
     terserOptions: {
       compress: {
         drop_console: true,

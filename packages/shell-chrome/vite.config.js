@@ -11,6 +11,7 @@ const staticFiles = ['manifest.json', 'icons'].map(file => {
 
 export default defineConfig({
     build: {
+        minify: "terser",
         rollupOptions: {
             input: {
                 content: resolve(__dirname, "src/content.js"),
