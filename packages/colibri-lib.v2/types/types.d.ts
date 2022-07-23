@@ -27,3 +27,5 @@ export interface IGlobalState {
 export interface IMatchContentMap {
     [match_url: string]: IMatchContent;
 }
+/**请求协议 */
+export declare type IRequestMethod = "*" | "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS" | "CONNECT" | "TRACE";

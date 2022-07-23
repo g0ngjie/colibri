@@ -1,4 +1,4 @@
-import { IGlobalState, IMatchContent, IMatchContentMap } from "./types";
+import { IGlobalState, IMatchContent, IMatchContentMap, IRequestMethod } from "./types";
 declare function update<T = boolean>(switch_on: T): void;
 declare function update<T = IMatchContent[]>(matching_content: T): void;
 declare function update<T = IGlobalState>(state: T): void;
@@ -8,4 +8,4 @@ declare const _default: {
     switchOn: typeof switchOn;
 };
 export default _default;
-export type { IMatchContentMap };
+export type { IMatchContentMap, IRequestMethod, };

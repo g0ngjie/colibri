@@ -11,7 +11,7 @@ export default defineComponent(() => {
     }
 
     return () => <>
-        <NSpace justify="space-between" class="px3 pt3 color-neutral-500">
+        <NSpace justify="space-between" class="px3 pt3 color-neutral-500 bg-gray-50 py-3 shadow-sm">
             <NIcon size={20} class="hover:cursor-pointer">
                 <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2070" width="256" height="256">
                     <path d="M128 768h768v-85.34H128z m0-213.34h768v-85.32H128zM128 256v85.34h768V256z" p-id="2071"></path>
