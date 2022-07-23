@@ -1,108 +1,50 @@
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useData } from "../store/data";
-import { NButton, NDataTable, NSpace, NSwitch } from "naive-ui";
+import { NButton, NDataTable, NSpace, NSwitch, NCollapseTransition } from "naive-ui";
 import type { DataTableColumns } from "naive-ui"
 import { IMatchContent } from "@colibri/lib.v2/types/types";
+import CollapseBtn from "./tools/collapseBtn";
 
-interface ITableOptions {
-    delFn: (url: string) => void;
-    editFn: (url: string) => void;
-    switchFn: (url: string, bool: boolean) => void;
-}
+const list = [
+    { id: '1', url: '1' },
+    { id: '2', url: '2' },
+    { id: '3', url: '3' },
+    { id: '4', url: '4' },
+]
 
 export default defineComponent(() => {
 
+    const interceptors = ref(list)
     const store = useData()
-
-    const createColumns = ({ delFn, editFn, switchFn }: ITableOptions): DataTableColumns<IMatchContent> => [
-        {
-            title: "status",
-            minWidth: "70",
-            key: "",
-            render: (row: any, index: number) => (
-                <NSwitch
-                    size="small"
-                    v-model:value={row.switchOn}
-                    round={false}
-                    onUpdate:value={(bool) => switchFn(row.switch_on, bool)}
-                />
-            ),
-        },
-        {
-            title: "title",
-            minWidth: "100",
-            key: "title",
-            ellipsis: {
-                tooltip: true,
-            },
-        },
-        {
-            title: "match",
-            minWidth: "100",
-            key: "match_url",
-            ellipsis: {
-                tooltip: true,
-            },
-        },
-        {
-            title: "remarks",
-            minWidth: "150",
-            key: "remarks",
-            ellipsis: {
-                tooltip: true,
-            },
-        },
-        {
-            title: "hit",
-            minWidth: "150",
-            key: "hit",
-        },
-        {
-            title: "options",
-            width: "160",
-            key: "",
-            fixed: "right",
-            render(row: any, index: number) {
-                return (
-                    <>
-                        <NSpace>
-                            <NButton
-                                ghost
-                                size="tiny"
-                                type="info"
-                                onClick={() => editFn(row.id)}
-                            >
-                                edit
-                            </NButton>
-                            <NButton
-                                ghost
-                                type="error"
-                                size="tiny"
-                                onClick={() => delFn(row.id)}
-                            >
-                                delete
-                            </NButton>
-                        </NSpace>
-                    </>
-                );
-            },
-        },
-    ];
-
     return () => <>
-        <NDataTable
-            size="small"
-            bordered={false}
-            striped
-            loading={!store.tableLoaded}
-            single-line={false}
-            scroll-x={500}
-            columns={createColumns({
-                switchFn: (url) => { },
-                delFn: (url) => { },
-                editFn: (url) => { },
-            })}
-            data={store.tableList}
-        />
+        {
+            interceptors.value.map((item) => {
+                return <div class="flex flex-col m1 py-1 px-2 b-b b-zinc-400 hover-border-color-slate-9">
+                    <RowContainer data={item} />
+                </div>
+            })
+        }
     </>
+})
+
+interface IRowContainerProps {
+    data: { id: string, url: string }
+}
+
+const RowContainer = defineComponent({
+    props: {
+        data: {
+            type: Object as () => IRowContainerProps['data'],
+            required: true,
+        }
+    },
+    setup(props) {
+        const show = ref(false)
+        return () => <>
+            <CollapseBtn show={show.value} update={(bool: boolean) => show.value = bool} />
+            <NCollapseTransition show={show.value}>
+                {props.data.url}
+            </NCollapseTransition>
+        </>
+    }
 })
