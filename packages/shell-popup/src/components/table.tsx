@@ -10,6 +10,12 @@ const list: IRowProps[] = [
     { id: '2', url: '2', method: '*' },
     { id: '3', url: '3', method: "PATCH" },
     { id: '4', url: '4', method: "DELETE" },
+    { id: '4', url: '4', method: "TRACE" },
+    { id: '4', url: '4', method: "PUT" },
+    { id: '4', url: '4', method: "CONNECT" },
+    { id: '4', url: '4', method: "OPTIONS" },
+    { id: '4', url: '4', method: "HEAD" },
+    { id: '4', url: '4', method: "POST" },
 ]
 
 interface IRowProps {
