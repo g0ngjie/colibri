@@ -1,11 +1,15 @@
-import { defineComponent } from "vue";
-import { NButton, NIcon, NSpace, NSwitch } from "naive-ui";
-import { useI18n } from "vue-i18n";
+import { defineComponent, ref } from "vue";
+import { NIcon, NSpace } from "naive-ui";
 
 // 工具栏: 全局开关 国际化 主题
 export default defineComponent(() => {
 
-    const { t } = useI18n()
+    // 播放状态
+    const isPlaying = ref(false);
+    const handlePaly = (bool: boolean) => {
+        isPlaying.value = bool
+    }
+
     return () => <>
         <NSpace justify="space-between" class="px3 pt3 color-neutral-500">
             <NIcon size={20} class="hover:cursor-pointer">
@@ -29,16 +33,21 @@ export default defineComponent(() => {
                     </svg>
                 </NIcon>
                 <NIcon size={20} class="hover:cursor-pointer">
-                    {/* 启动 */}
-                    <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
-                        <path d="M825.48 493.81L219.52 144A21 21 0 0 0 188 162.15v699.7A21 21 0 0 0 219.52 880l606-349.85a21 21 0 0 0-0.04-36.34z">
-                        </path>
-                    </svg>
-                    {/* 停止 */}
-                    <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
-                        <path d="M256 192h512c35.392 0 64 28.608 64 64v512c0 35.392-28.608 64-64 64H256c-35.392 0-64-28.608-64-64V256c0-35.392 28.608-64 64-64z">
-                        </path>
-                    </svg>
+                    {
+                        isPlaying.value
+                            ?
+                            // 停止
+                            (<svg onClick={() => handlePaly(false)} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+                                <path d="M256 192h512c35.392 0 64 28.608 64 64v512c0 35.392-28.608 64-64 64H256c-35.392 0-64-28.608-64-64V256c0-35.392 28.608-64 64-64z">
+                                </path>
+                            </svg>)
+                            :
+                            // 启动
+                            (<svg onClick={() => handlePaly(true)} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+                                <path d="M825.48 493.81L219.52 144A21 21 0 0 0 188 162.15v699.7A21 21 0 0 0 219.52 880l606-349.85a21 21 0 0 0-0.04-36.34z">
+                                </path>
+                            </svg>)
+                    }
                 </NIcon>
                 <NIcon size={20} class="hover:cursor-pointer">
                     {/* 折叠 */}
@@ -55,9 +64,6 @@ export default defineComponent(() => {
                     </svg>
                 </NIcon>
             </NSpace>
-        </NSpace>
-        <NSpace class="px3 pt3">
-            <NButton size="tiny">{t('create')}</NButton>
         </NSpace>
     </>
 })
