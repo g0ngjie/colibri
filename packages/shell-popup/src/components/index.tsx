@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import Toolbar from "./toolbar/index";
+import Toolbar from "./toolbar";
 import Table from "./table";
 import { NSpace } from 'naive-ui'
 
