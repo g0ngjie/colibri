@@ -60,7 +60,7 @@ const RowContainer = defineComponent({
                         {props.data.url}
                     </NCollapseTransition>
                 </div>
-                <div class="w50">
+                <div class="w50 flex items-center">
                     <MethodTag method={props.data.method} />
                 </div>
             </div>

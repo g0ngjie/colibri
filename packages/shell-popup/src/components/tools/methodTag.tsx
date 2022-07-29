@@ -27,7 +27,7 @@ export default defineComponent({
     },
     setup(props) {
         return () => <>
-            <NTag type={mapTagColor[props.method.toUpperCase()]} class="bg-zinc-2 font-bold">{
+            <NTag size="small" type={mapTagColor[props.method.toUpperCase()]} class="bg-zinc-2 font-bold">{
                 props.method === "*" ? "*(any)" : props.method.toUpperCase()
             }</NTag>
         </>
