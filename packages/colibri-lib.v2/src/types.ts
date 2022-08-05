@@ -32,4 +32,4 @@ export interface IMatchContentMap {
 }
 
 /**请求协议 */
-export type IRequestMethod = "*" | "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS" | "CONNECT" | "TRACE";
+export type IRequestMethod = "ANY" | "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
