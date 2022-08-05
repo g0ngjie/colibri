@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { useData } from "../store/data";
+import { useData } from "@/store/data";
 import { NButton } from "naive-ui";
 
 export default defineComponent(() => {

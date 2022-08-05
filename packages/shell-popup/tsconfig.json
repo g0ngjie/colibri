@@ -14,7 +14,12 @@
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment"
+    "jsxFragmentFactory": "Fragment",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

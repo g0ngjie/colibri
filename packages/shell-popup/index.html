@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colibri</title>
+  <title>Ajax Proxy V3</title>
   <style>
     /*滚动条凹槽的颜色，还可以设置边框属性*/
     ::-webkit-scrollbar-track-piece {
@@ -36,12 +36,14 @@
       margin: 0;
       width: 100%;
       height: 100%;
+      overflow-x: hidden;
+      background-color: #f3f4f6;
     }
   </style>
 </head>
 
 <body>
-  <div id="app" overflow-x-hidden bg-gray-1></div>
+  <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
 

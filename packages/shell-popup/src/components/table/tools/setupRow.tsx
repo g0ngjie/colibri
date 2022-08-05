@@ -1,12 +1,13 @@
 import { defineComponent } from "vue";
 import { NForm, NFormItem, NInput, NSelect } from "naive-ui";
-import { ITableRowData } from "../../interfaces";
+import { ITableRowData } from "@/interfaces";
 import { IRequestMethod } from "@colibri/lib.v2";
+import styl from "./style.module.scss";
 
 type TagType = "default" | "error" | "primary" | "info" | "success" | "warning";
 
 const MethodOptions = [
-    { label: "ANY", value: "ANY", },
+    { label: "*(any)", value: "ANY", },
     { label: "GET", value: "GET", },
     { label: "POST", value: "POST", },
     { label: "PUT", value: "PUT", },
@@ -25,10 +26,10 @@ export default defineComponent({
         return () => <>
             <NForm size="small" inline>
                 <NFormItem label="Label">
-                    <NInput class="w50"></NInput>
+                    <NInput class={styl.formItemWidth}></NInput>
                 </NFormItem>
                 <NFormItem label="Method">
-                    <NSelect options={MethodOptions} class="w50"></NSelect>
+                    <NSelect options={MethodOptions} class={styl.formItemWidth}></NSelect>
                 </NFormItem>
             </NForm>
         </>
