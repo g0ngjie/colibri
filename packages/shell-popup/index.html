@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ajax Proxy V3</title>
   <style>
+    :root {
+      --ajax-proxy-v3-global-witdh: 800px;
+    }
     /*滚动条凹槽的颜色，还可以设置边框属性*/
     ::-webkit-scrollbar-track-piece {
       background-color: #f8f8f8;
@@ -28,7 +31,7 @@
     html, body {
       padding: 0;
       margin: 0;
-      width: 800px;
+      width: var(--ajax-proxy-v3-global-witdh);
       height: 540px;
     }
     #app {

@@ -1,11 +1,15 @@
 // px3 pt3 color-neutral-500 bg-white py-3 shadow-sm
 .spaceContainer {
+  width: calc(var(--ajax-proxy-v3-global-witdh) - 1.5rem);
+  height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   padding: 0.75rem;
   color: #737373;
   background-color: #fff;
-  box-shadow: 0 0 #0000;
-  --un-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.05);
 }
 
 .icon {
