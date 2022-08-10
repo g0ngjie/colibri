@@ -11,6 +11,4 @@ initStorage().then(() => {
 
 })
 
-window.chrome.storage.sync.get(null, result => {
-    console.log("[debug]result:", result)
-})
+
