@@ -1,37 +1,28 @@
-export declare enum HookEvents {
-    INIT = "init",
-    APP_INIT = "app:init",
-    APP_ADD = "app:add",
-    APP_UNMOUNT = "app:unmount",
-    COMPONENT_UPDATED = "component:updated",
-    COMPONENT_ADDED = "component:added",
-    COMPONENT_REMOVED = "component:removed",
-    COMPONENT_EMIT = "component:emit",
-    COMPONENT_HIGHLIGHT = "component:highlight",
-    COMPONENT_UNHIGHLIGHT = "component:unhighlight",
-    SETUP_DEVTOOLS_PLUGIN = "devtools-plugin:setup",
-    TIMELINE_LAYER_ADDED = "timeline:layer-added",
-    TIMELINE_EVENT_ADDED = "timeline:event-added",
-    CUSTOM_INSPECTOR_ADD = "custom-inspector:add",
-    CUSTOM_INSPECTOR_SEND_TREE = "custom-inspector:send-tree",
-    CUSTOM_INSPECTOR_SEND_STATE = "custom-inspector:send-state",
-    CUSTOM_INSPECTOR_SELECT_NODE = "custom-inspector:select-node",
-    PERFORMANCE_START = "perf:start",
-    PERFORMANCE_END = "perf:end",
-    PLUGIN_SETTINGS_SET = "plugin:settings:set",
-    /**
-     * @deprecated
-     */
-    FLUSH = "flush",
-    /**
-     * @deprecated
-     */
-    TRACK_UPDATE = "_track-update",
-    /**
-     * @deprecated
-     */
-    FLASH_UPDATE = "_flash-update"
+/**storage enums */
+export declare enum StorageKey {
+    LANGUAGE = "colibri:storage:language",
+    /**主题 */
+    THEME = "colibri:storage:theme",
+    /**全局开关 */
+    GLOBAL_SWITCH = "colibri:storage:global-switch",
+    /**拦截列表 */
+    INTERCEPT_LIST = "colibri:storage:intercept-list"
 }
-export declare enum StorageKeys {
-    LANGUAGE = "colibri:storage:language"
+/**通知 */
+export declare enum Notice {
+    /**唯一通知类型 */
+    TYPE = "colibri:notice:type",
+    /**通知 content */
+    TO_CONTENT = "colibri:notice:content",
+    /**通知 popup */
+    TO_POPUP = "colibri:notice:popup",
+    /**通知 document */
+    TO_DOCUMENT = "colibri:notice:document"
+}
+/**通知Key */
+export declare enum NoticeKey {
+    /**全局开关 */
+    GLOBAL_SWITCH = "colibri:notice:global-switch",
+    /**拦截数据列表 */
+    INTERCEPT_LIST = "colibri:notice:intercept-list"
 }

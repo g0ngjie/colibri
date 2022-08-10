@@ -1,6 +1,13 @@
 console.log("Colibri content.js")
 
-import { getStorage, initStorage } from "@colibri/shared-utils";
+import {
+    getStorage,
+    initStorage,
+    Notice,
+    NoticeKey,
+    StorageKey,
+    noticeDocument,
+} from "@colibri/shared-utils";
 
 // 在页面上插入代码
 const script = document.createElement("script");
@@ -13,38 +20,24 @@ initStorage().then(() => {
     const storage = getStorage("sync", "default value is null");
     console.log("[debug]storage:", storage)
     script.addEventListener("load", () => {
-        postMessage({
-            type: "colibri_message",
-            to: "document",
-            key: "globalSwitchOn",
-            value: true,
-        });
-        postMessage({
-            type: "colibri_message",
-            to: "document",
-            key: "proxy_routes",
-            value: true,
-        });
         // ["globalSwitchOn", "proxy_routes", "mode", "redirect"]
-        if (getStorage("globalSwitchOn", false)) {
-            postMessage({
-                type: "colibri_message",
-                to: "document",
-                key: "globalSwitchOn",
-                value: true,
-            });
+        if (getStorage(StorageKey.GLOBAL_SWITCH, false)) {
+            noticeDocument(NoticeKey.GLOBAL_SWITCH, true);
         }
-        if (getStorage("proxy_routes")) {
-            postMessage({
-                type: "colibri_message",
-                to: "document",
-                key: "proxy_routes",
-                value: getStorage("proxy_routes"),
-            });
+        if (getStorage(StorageKey.INTERCEPT_LIST)) {
+            noticeDocument(NoticeKey.INTERCEPT_LIST, getStorage(StorageKey.INTERCEPT_LIST));
         }
     });
 
-    // // 接收background.js传来的信息，转发给core
+    // 接收 popup 的消息 转发给 document
+    chrome.runtime.onMessage.addListener((msg) => {
+        console.log("[debug]接收 popup 的消息 转发给 document msg:", msg)
+        if (msg.type === Notice.TYPE && msg.to === Notice.TO_CONTENT) {
+            noticeDocument(msg.key, msg.value);
+        }
+    })
+
+    // 接收background.js传来的信息，转发给core
     // chrome.runtime.onMessage.addListener((msg) => {
     //     if (msg.type === "colibri_message" && msg.to === "content") {
     //         const _isInclude = [

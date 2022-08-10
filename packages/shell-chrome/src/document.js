@@ -1,20 +1,21 @@
 console.log("Colibri document.js");
 
 import lib from "@colibri/lib.v2";
+import { Notice, NoticeKey } from "@colibri/shared-utils";
 
 window.addEventListener(
     "message",
     function (event) {
         const data = event.data;
         let globalSwitch = false
-        if (data.type === "colibri_message" && data.to === "document") {
+        if (data.type === Notice.TYPE && data.to === Notice.TO_DOCUMENT) {
             console.log("[debug]document data:", data)
             switch (data.key) {
-                case "globalSwitchOn":
+                case NoticeKey.GLOBAL_SWITCH:
                     globalSwitch = data.value;
                     lib.setGlobalSwitch(globalSwitch)
                     break;
-                case "proxy_routes":
+                case NoticeKey.INTERCEPT_LIST:
                     lib.update(data.value)
                     break;
             }
