@@ -5,6 +5,6 @@ export interface ITableRowData extends IMatchContent {
     // url: string;
     // label?: string;
     // filter_type: 'regex' | 'normal';
-    method: IRequestMethod;
+    // method: IRequestMethod;
     // hit: number;
 }

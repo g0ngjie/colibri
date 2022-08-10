@@ -14,7 +14,7 @@ export const useData = defineStore('data', () => {
     const tableLoaded = ref(false)
 
     onMounted(() => {
-        matchMap.value = { test: { switch_on: true, match_url: 'https://foo.com' } }
+        matchMap.value = { test: { switch_on: true, match_url: 'https://foo.com', method: 'ANY' } }
         tableLoaded.value = true
     })
 

@@ -32,7 +32,9 @@ export default defineComponent({
                     <NInput class={styl.formItemWidth}></NInput>
                 </NFormItem>
             </NForm>
-            <NInput type="textarea"></NInput>
+            <NFormItem size="small" label="Override">
+                <NInput type="textarea"></NInput>
+            </NFormItem>
         </>
     }
 })
