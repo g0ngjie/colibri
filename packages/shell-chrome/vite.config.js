@@ -15,7 +15,6 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 content: resolve(__dirname, "src/content.js"),
-                // background: resolve(__dirname, "src/background.js"),
                 document: resolve(__dirname, "src/document.js"),
             },
             output: {
