@@ -4,5 +4,6 @@ export interface ITableRowData {
     id: string;
     url: string;
     label?: string;
+    type: 'regex' | 'normal';
     method: IRequestMethod;
 }

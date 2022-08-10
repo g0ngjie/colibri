@@ -32,6 +32,7 @@ export default defineComponent({
                     <NSelect options={MethodOptions} class={styl.formItemWidth}></NSelect>
                 </NFormItem>
             </NForm>
+            <NInput type="textarea"></NInput>
         </>
     }
 })
