@@ -67,4 +67,5 @@ export default {
 export type {
     IMatchContentMap,
     IRequestMethod,
+    IMatchContent,
 }

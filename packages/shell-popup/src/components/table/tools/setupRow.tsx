@@ -25,11 +25,11 @@ export default defineComponent({
     setup(props) {
         return () => <>
             <NForm size="small" inline>
-                <NFormItem label="Label">
-                    <NInput class={styl.formItemWidth}></NInput>
-                </NFormItem>
                 <NFormItem label="Method">
                     <NSelect options={MethodOptions} class={styl.formItemWidth}></NSelect>
+                </NFormItem>
+                <NFormItem label="Label">
+                    <NInput class={styl.formItemWidth}></NInput>
                 </NFormItem>
             </NForm>
             <NInput type="textarea"></NInput>

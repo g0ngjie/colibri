@@ -8,4 +8,4 @@ declare const _default: {
     switchOn: typeof switchOn;
 };
 export default _default;
-export type { IMatchContentMap, IRequestMethod, };
+export type { IMatchContentMap, IRequestMethod, IMatchContent, };

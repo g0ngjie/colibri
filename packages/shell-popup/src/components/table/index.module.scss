@@ -36,6 +36,17 @@
   align-items: center;
 }
 
+.methodTag {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.options {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
 .rowInfoContainer {
   padding-left: 32px;
 }

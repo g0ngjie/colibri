@@ -10,7 +10,7 @@ export interface IMatchContent {
     /**匹配规则 */
     filter_type?: IFilterType;
     /**请求协议 */
-    method?: string;
+    method: string;
     /**备注 */
     remarks?: string;
     /**命中率 */

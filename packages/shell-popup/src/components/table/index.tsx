@@ -8,12 +8,12 @@ import { ITableRowData } from "@/interfaces";
 import styl from "./index.module.scss";
 
 const list: ITableRowData[] = [
-    { id: '1', url: '1', method: 'GET', filter_type: 'regex' },
-    { id: '2', url: '2', method: 'ANY', filter_type: 'normal' },
-    { id: '3', url: '3', method: "PATCH", filter_type: 'normal' },
-    { id: '4', url: '4', method: "DELETE", filter_type: 'normal' },
-    { id: '4', url: '4', method: "PUT", filter_type: 'normal' },
-    { id: '4', url: '4', method: "POST", filter_type: 'normal' },
+    { id: '1', match_url: '1', method: 'GET', filter_type: 'regex', hit: 0, switch_on: true, },
+    { id: '2', match_url: '2', method: 'ANY', filter_type: 'normal', hit: 0, switch_on: true, },
+    { id: '3', match_url: '3', method: "PATCH", filter_type: 'normal', hit: 0, switch_on: true, },
+    { id: '4', match_url: '4', method: "DELETE", filter_type: 'normal', hit: 0, switch_on: true, },
+    { id: '4', match_url: '4', method: "PUT", filter_type: 'normal', hit: 0, switch_on: true, },
+    { id: '4', match_url: '4', method: "POST", filter_type: 'normal', hit: 0, switch_on: true, },
 ]
 
 export default defineComponent(() => {
@@ -65,7 +65,11 @@ const RowContainer = defineComponent({
                         </NInput>
                     </div>
                     <div class={styl.rowMethodTag}>
-                        <MethodTag method={props.data.method} />
+                        <div class={styl.methodTag}>
+                            <MethodTag method={props.data.method} />
+                        </div>
+                        <div class={styl.options}>{props.data.hit}</div>
+                        <NSwitch size="small" class={styl.options}></NSwitch>
                     </div>
                 </div>
                 <div class={styl.rowInfoContainer}>
