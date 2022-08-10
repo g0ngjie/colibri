@@ -34,7 +34,7 @@ function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Resp
         });
 
         // 返回原始响应
-        if (!globalState.value.switch_on || !txt) return response
+        if (!globalState.value.global_on || !txt) return response
 
         const stream = new ReadableStream({
             start(controller) {

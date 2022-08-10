@@ -7,7 +7,7 @@ import { warn } from "./common";
 // 初始化共享状态
 const globalState = ref<IGlobalState>({
     // 全局状态开关
-    switch_on: false,
+    global_on: false,
     // 匹配内容
     matching_content: [],
 })
@@ -16,7 +16,7 @@ function initState() {
     // 初始化共享状态
     initXHRState(globalState);
     initFetchState(globalState);
-    mountInstance(globalState.value.switch_on)
+    mountInstance(globalState.value.global_on)
 }
 
 function mountInstance(bool: boolean = true) {
@@ -30,23 +30,23 @@ function mountInstance(bool: boolean = true) {
 }
 
 function isIGlobalState(target: any) {
-    return target.hasOwnProperty("switch_on") && target.hasOwnProperty("matching_content")
+    return target.hasOwnProperty("global_on") && target.hasOwnProperty("matching_content")
 }
 
 function updateGlobalState(target: unknown) {
     if (isIGlobalState(target)) {
         globalState.value = target as IGlobalState
-        mountInstance(globalState.value.switch_on)
+        mountInstance(globalState.value.global_on)
     } else warn("unknow type")
 }
 
 // 修改共享状态
-function update<T = boolean>(switch_on: T): void
+function update<T = boolean>(global_switch_on: T): void
 function update<T = IMatchContent[]>(matching_content: T): void
 function update<T = IGlobalState>(state: T): void
 function update<unknow>(target: unknow) {
     if (typeof target === "boolean") {
-        globalState.value.switch_on = target
+        globalState.value.global_on = target
         mountInstance(target)
     } else if (Array.isArray(target)) {
         globalState.value.matching_content = target
@@ -54,7 +54,7 @@ function update<unknow>(target: unknow) {
 }
 
 function switchOn(bool: boolean) {
-    globalState.value.switch_on = bool
+    globalState.value.global_on = bool
     mountInstance(bool)
 }
 

@@ -19,7 +19,7 @@ export interface IMatchContent {
 }
 export interface IGlobalState {
     /**全局开关 */
-    switch_on: boolean;
+    global_on: boolean;
     /**规则列表 */
     matching_content: IMatchContent[];
 }
