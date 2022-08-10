@@ -15,7 +15,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 content: resolve(__dirname, "src/content.js"),
-                background: resolve(__dirname, "src/background.js"),
+                // background: resolve(__dirname, "src/background.js"),
+                document: resolve(__dirname, "src/document.js"),
             },
             output: {
                 entryFileNames: "[name].js",
@@ -25,7 +26,7 @@ export default defineConfig({
         terserOptions: {
             compress: {
                 // 生产移除console
-                drop_console: true,
+                // drop_console: true,
                 drop_debugger: true
             }
         }

@@ -46,14 +46,14 @@ function update<T = IMatchContent[]>(matching_content: T): void
 function update<T = IGlobalState>(state: T): void
 function update<unknow>(target: unknow) {
     if (typeof target === "boolean") {
-        globalState.value.global_on = target
-        mountInstance(target)
+        setGlobalSwitch(target)
     } else if (Array.isArray(target)) {
         globalState.value.matching_content = target
     } else updateGlobalState(target)
 }
 
-function switchOn(bool: boolean) {
+// 全局开关
+function setGlobalSwitch(bool: boolean) {
     globalState.value.global_on = bool
     mountInstance(bool)
 }
@@ -61,7 +61,7 @@ function switchOn(bool: boolean) {
 initState()
 export default {
     update,
-    switchOn,
+    setGlobalSwitch,
 }
 
 export type {

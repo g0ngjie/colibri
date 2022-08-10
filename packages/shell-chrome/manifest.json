@@ -38,7 +38,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [],
+      "resources": ["document.js"],
       "matches": [
         "<all_urls>"
       ]
