@@ -29,4 +29,6 @@ export enum NoticeKey {
   GLOBAL_SWITCH = 'colibri:notice:global-switch',
   /**拦截数据列表 */
   INTERCEPT_LIST = 'colibri:notice:intercept-list',
+  /**徽章状态 */
+  BADGE_STATUS = 'colibri:notice:badge-status',
 }

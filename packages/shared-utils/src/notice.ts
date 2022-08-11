@@ -1,15 +1,15 @@
 import { target } from "./env";
-import { Notice } from "./consts";
+import { Notice, NoticeKey } from "./consts";
 
 const useTabs = typeof target.chrome !== "undefined" && typeof target.chrome.tabs !== "undefined";
 const useRuntime = typeof target.chrome !== "undefined" && typeof target.chrome.runtime !== "undefined";
 
 /**
- * 通知content
+ * 通知 popup -> content
  * @param key 
  * @param value 
  */
-export function noticeContent(key, value) {
+export function noticeContentByPopup(key: NoticeKey, value) {
     if (useTabs) {
         target.chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             target.chrome.tabs.sendMessage(tabs[0].id, {
@@ -23,9 +23,9 @@ export function noticeContent(key, value) {
 }
 
 /**
- * 通知 document
+ * 通知 content -> document
  */
-export function noticeDocument(key, value) {
+export function noticeDocumentByContent(key: NoticeKey, value) {
     window.postMessage({
         type: Notice.TYPE,
         to: Notice.TO_DOCUMENT,
@@ -37,7 +37,7 @@ export function noticeDocument(key, value) {
 /**
  * 通知 popup
  */
-export function noticePopup(key, value) {
+export function noticePopup(key: NoticeKey, value) {
     if (useRuntime) {
         target.chrome.runtime.sendMessage({
             type: Notice.TYPE,
@@ -53,7 +53,7 @@ export function noticePopup(key, value) {
  * @param key
  * @param value
  */
-export function noticeBackground(key, value) {
+export function noticeBackground(key: NoticeKey, value) {
     if (useRuntime) {
         target.chrome.runtime.sendMessage({
             type: Notice.TYPE,

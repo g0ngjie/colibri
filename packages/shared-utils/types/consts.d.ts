@@ -26,5 +26,7 @@ export declare enum NoticeKey {
     /**全局开关 */
     GLOBAL_SWITCH = "colibri:notice:global-switch",
     /**拦截数据列表 */
-    INTERCEPT_LIST = "colibri:notice:intercept-list"
+    INTERCEPT_LIST = "colibri:notice:intercept-list",
+    /**徽章状态 */
+    BADGE_STATUS = "colibri:notice:badge-status"
 }

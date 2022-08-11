@@ -6,7 +6,7 @@ import {
     Notice,
     NoticeKey,
     StorageKey,
-    noticeDocument,
+    noticeDocumentByContent,
 } from "@colibri/shared-utils";
 
 // 在页面上插入代码
@@ -22,10 +22,10 @@ initStorage().then(() => {
     script.addEventListener("load", () => {
         // ["globalSwitchOn", "proxy_routes", "mode", "redirect"]
         if (getStorage(StorageKey.GLOBAL_SWITCH, false)) {
-            noticeDocument(NoticeKey.GLOBAL_SWITCH, true);
+            noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, true);
         }
         if (getStorage(StorageKey.INTERCEPT_LIST)) {
-            noticeDocument(NoticeKey.INTERCEPT_LIST, getStorage(StorageKey.INTERCEPT_LIST));
+            noticeDocumentByContent(NoticeKey.INTERCEPT_LIST, getStorage(StorageKey.INTERCEPT_LIST));
         }
     });
 
@@ -33,7 +33,7 @@ initStorage().then(() => {
     chrome.runtime.onMessage.addListener((msg) => {
         console.log("[debug]接收 popup 的消息 转发给 document msg:", msg)
         if (msg.type === Notice.TYPE && msg.to === Notice.TO_CONTENT) {
-            noticeDocument(msg.key, msg.value);
+            noticeDocumentByContent(msg.key, msg.value);
         }
     })
 

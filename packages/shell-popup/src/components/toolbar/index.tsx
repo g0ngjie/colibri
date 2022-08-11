@@ -1,5 +1,6 @@
 import { defineComponent, ref } from "vue";
 import { NIcon, NSpace, useDialog, NDrawer } from "naive-ui";
+import { noticeContentByPopup, NoticeKey } from "@colibri/shared-utils";
 import styl from "./index.module.scss";
 
 import { useData } from "@/store/data";
@@ -17,6 +18,7 @@ export default defineComponent(() => {
     const handlePaly = (bool: boolean) => {
         if (store.isEmpty) return
         isPlaying.value = bool
+        noticeContentByPopup(NoticeKey.GLOBAL_SWITCH, bool)
     }
 
     // 清空数据
@@ -68,13 +70,13 @@ export default defineComponent(() => {
                     {
                         isPlaying.value
                             ?
-                            // 停止
+                            // 停止图标
                             (<svg onClick={() => handlePaly(false)} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
                                 <path d="M256 192h512c35.392 0 64 28.608 64 64v512c0 35.392-28.608 64-64 64H256c-35.392 0-64-28.608-64-64V256c0-35.392 28.608-64 64-64z">
                                 </path>
                             </svg>)
                             :
-                            // 启动
+                            // 启动图标
                             (<svg onClick={() => handlePaly(true)} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
                                 <path d="M825.48 493.81L219.52 144A21 21 0 0 0 188 162.15v699.7A21 21 0 0 0 219.52 880l606-349.85a21 21 0 0 0-0.04-36.34z">
                                 </path>
