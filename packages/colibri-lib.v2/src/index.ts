@@ -1,5 +1,5 @@
 import { ref } from "@vue/reactivity";
-import { IGlobalState, IMatchContent, IMatchContentMap, IRequestMethod } from "./types";
+import { IGlobalState, IMatchContent, IRequestMethod } from "./types";
 import CreateXHR, { initXHRState, OriginXHR } from "./createXHR";
 import CreateFetch, { initFetchState, OriginFetch } from "./createFetch";
 import { warn } from "./common";
@@ -65,7 +65,6 @@ export default {
 }
 
 export type {
-    IMatchContentMap,
     IRequestMethod,
     IMatchContent,
 }

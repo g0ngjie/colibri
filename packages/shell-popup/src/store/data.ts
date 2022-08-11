@@ -1,28 +1,27 @@
 
 import { computed, onMounted, ref } from "vue";
 import { defineStore } from "pinia";
-import { IMatchContentMap } from "@colibri/lib.v2";
-import { IMatchContent } from "@colibri/lib.v2/types/types";
+import { ITableRowData } from "@/interfaces";
 
 export const useData = defineStore('data', () => {
     const title = ref<string>("标题: ")
-    // 匹配规则数据
-    const matchMap = ref<IMatchContentMap>({})
     // 匹配规则列表
-    const tableList = computed<IMatchContent[]>(() => Object.keys(matchMap.value).map(key => matchMap.value[key]))
-    // 数据表 加载状态
-    const tableLoaded = ref(false)
+    const tableList = ref<ITableRowData[]>([]);
 
+    const list: ITableRowData[] = [
+        { id: '1', match_url: '1', method: 'GET', filter_type: 'regex', hit: 0, switch_on: true, },
+        { id: '2', match_url: '2', method: 'ANY', filter_type: 'normal', hit: 0, switch_on: true, },
+        { id: '3', match_url: '3', method: "PATCH", filter_type: 'normal', hit: 0, switch_on: true, },
+        { id: '4', match_url: '4', method: "DELETE", filter_type: 'normal', hit: 0, switch_on: true, },
+        { id: '4', match_url: '4', method: "PUT", filter_type: 'normal', hit: 0, switch_on: true, },
+        { id: '4', match_url: '4', method: "POST", filter_type: 'normal', hit: 0, switch_on: true, },
+    ]
     onMounted(() => {
-        matchMap.value = { test: { switch_on: true, match_url: 'https://foo.com', method: 'ANY' } }
-        tableLoaded.value = true
+        tableList.value = list;
     })
 
-    console.log("[debug]tableList.value:", tableList.value)
     return {
         title,
-        matchMap,
         tableList,
-        tableLoaded,
     }
 })

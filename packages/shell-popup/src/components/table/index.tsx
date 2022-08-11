@@ -1,28 +1,17 @@
 import { defineComponent, ref } from "vue";
 import { useData } from "@/store/data";
-import { NButton, NDataTable, NSpace, NSwitch, NInput, NSelect, NIcon } from "naive-ui";
-import type { DataTableColumns } from "naive-ui"
-import { IMatchContent, IRequestMethod } from "@colibri/lib.v2/types/types";
+import { NButton, NSwitch, NInput, NSelect, NIcon } from "naive-ui";
 import { CollapseBtn, MethodTag, SetUpRow } from "./tools";
 import { ITableRowData } from "@/interfaces";
 import styl from "./index.module.scss";
 
-const list: ITableRowData[] = [
-    { id: '1', match_url: '1', method: 'GET', filter_type: 'regex', hit: 0, switch_on: true, },
-    { id: '2', match_url: '2', method: 'ANY', filter_type: 'normal', hit: 0, switch_on: true, },
-    { id: '3', match_url: '3', method: "PATCH", filter_type: 'normal', hit: 0, switch_on: true, },
-    { id: '4', match_url: '4', method: "DELETE", filter_type: 'normal', hit: 0, switch_on: true, },
-    { id: '4', match_url: '4', method: "PUT", filter_type: 'normal', hit: 0, switch_on: true, },
-    { id: '4', match_url: '4', method: "POST", filter_type: 'normal', hit: 0, switch_on: true, },
-]
-
 export default defineComponent(() => {
 
-    const interceptors = ref<ITableRowData[]>(list)
+    // const interceptors = ref<ITableRowData[]>(list)
     const store = useData()
     return () => <div class={styl.tableContainer}>
         {
-            interceptors.value.map((item) => {
+            store.tableList.map((item) => {
                 return <div class={styl.rowContainer}>
                     <RowContainer data={item} />
                 </div>

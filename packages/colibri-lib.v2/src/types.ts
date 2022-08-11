@@ -26,10 +26,5 @@ export interface IGlobalState {
     matching_content: IMatchContent[];
 }
 
-/**匹配规则数据映射 */
-export interface IMatchContentMap {
-    [match_url: string]: IMatchContent
-}
-
 /**请求协议 */
 export type IRequestMethod = "ANY" | "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
