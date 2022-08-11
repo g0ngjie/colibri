@@ -15,7 +15,7 @@ export interface IMatchContent {
     /**命中率 */
     hit?: number;
     /**标题 */
-    title?: string;
+    label?: string;
 }
 export interface IGlobalState {
     /**全局开关 */

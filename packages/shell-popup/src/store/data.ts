@@ -3,6 +3,7 @@ import { computed, onMounted, ref } from "vue";
 import { defineStore } from "pinia";
 import { ITableRowData } from "@/interfaces";
 import { uuid } from "@alrale/common-lib";
+import { IFilterType } from "@colibri/lib.v2/types/types";
 
 export const useData = defineStore('data', () => {
     const title = ref<string>("标题: ")
@@ -34,9 +35,19 @@ export const useData = defineStore('data', () => {
         })
     }
 
+    // 编辑 规则开关
+    const updateSwitchById = (id: string, bool: boolean) => {
+        tableList.value.forEach(item => {
+            if (item.id === id) {
+                item.switch_on = bool;
+            }
+        })
+    }
+
     return {
         title,
         tableList,
         addRow,
+        updateSwitchById,
     }
 })

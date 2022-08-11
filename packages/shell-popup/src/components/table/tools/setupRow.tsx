@@ -1,19 +1,7 @@
 import { defineComponent, ref, onMounted } from "vue";
 import { NForm, NFormItem, NInput, NSelect } from "naive-ui";
 import { ITableRowData } from "@/interfaces";
-import { IRequestMethod } from "@colibri/lib.v2";
 import styl from "./style.module.scss";
-
-type TagType = "default" | "error" | "primary" | "info" | "success" | "warning";
-
-const MethodOptions = [
-    { label: "*(any)", value: "ANY", },
-    { label: "GET", value: "GET", },
-    { label: "POST", value: "POST", },
-    { label: "PUT", value: "PUT", },
-    { label: "DELETE", value: "DELETE", },
-    { label: "PATCH", value: "PATCH", },
-];
 
 export default defineComponent({
     props: {
@@ -30,17 +18,23 @@ export default defineComponent({
         })
 
         return () => <>
-            <NForm size="small" inline>
-                <NFormItem label="Method">
-                    <NSelect options={MethodOptions} class={styl.formItemWidth}></NSelect>
-                </NFormItem>
+            <NForm size="small">
                 <NFormItem label="Label">
-                    <NInput class={styl.formItemWidth}></NInput>
+                    <NInput
+                        v-model:value={props.data.label}
+                        placeholder="please input label"
+                    />
+                </NFormItem>
+                <NFormItem size="small" label="Override">
+                    <NInput
+                        v-model:value={props.data.override}
+                        type="textarea"
+                        rows={10}
+                        ref={refOverride}
+                        placeholder="please input override"
+                    />
                 </NFormItem>
             </NForm>
-            <NFormItem size="small" label="Override">
-                <NInput type="textarea" rows={10} ref={refOverride}></NInput>
-            </NFormItem>
         </>
     }
 })

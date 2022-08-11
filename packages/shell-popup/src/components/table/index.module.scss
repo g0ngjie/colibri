@@ -16,6 +16,12 @@
   align-items: center;
 }
 
+.rowLabel {
+  font-size: 0.75rem;
+  color: #8e8e93;
+  padding-left: 33px;
+}
+
 .rowInput {
   flex: 1;
   margin: 0.25rem;
@@ -31,7 +37,7 @@
 }
 
 .rowMethodTag {
-  width: 12.5rem;
+  width: 8rem;
   display: flex;
   align-items: center;
 }
