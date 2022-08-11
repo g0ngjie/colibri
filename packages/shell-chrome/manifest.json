@@ -27,6 +27,9 @@
   "host_permissions": [
     "<all_urls>"
   ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
   "action": {
     "default_title": "Colibri",
     "default_popup": "popups/index.html",
