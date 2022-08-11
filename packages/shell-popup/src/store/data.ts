@@ -1,26 +1,41 @@
 
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { defineStore } from "pinia";
 import { ITableRowData } from "@/interfaces";
-import { uuid } from "@alrale/common-lib";
-import { IFilterType } from "@colibri/lib.v2/types/types";
+import { uuid, deepOClone } from "@alrale/common-lib";
+import {
+    getStorage,
+    noticeContentByPopup,
+    NoticeKey,
+    setStorage,
+    StorageKey
+} from "@colibri/shared-utils";
+
+// 通知content 变更数据
+function noticeSync(list: ITableRowData[]) {
+    // Proxy -> object
+    const currentList = deepOClone(list)
+    // 通知
+    noticeContentByPopup(NoticeKey.INTERCEPT_LIST, currentList);
+    // 同步本地数据
+    setStorage(StorageKey.INTERCEPT_LIST, currentList);
+}
 
 export const useData = defineStore('data', () => {
     const title = ref<string>("标题: ")
     // 匹配规则列表
     const tableList = ref<ITableRowData[]>([]);
 
-    const list: ITableRowData[] = [
-        { id: '1', match_url: '1', method: 'GET', filter_type: 'regex', hit: 0, expand: false, switch_on: true, },
-        // { id: '2', match_url: '2', method: 'ANY', filter_type: 'normal', hit: 0, switch_on: true, },
-        // { id: '3', match_url: '3', method: "PATCH", filter_type: 'normal', hit: 0, switch_on: true, },
-        // { id: '4', match_url: '4', method: "DELETE", filter_type: 'normal', hit: 0, switch_on: true, },
-        // { id: '4', match_url: '4', method: "PUT", filter_type: 'normal', hit: 0, switch_on: true, },
-        // { id: '4', match_url: '4', method: "POST", filter_type: 'normal', hit: 0, switch_on: true, },
-    ]
     onMounted(() => {
-        tableList.value = list;
+        const localList = getStorage(StorageKey.INTERCEPT_LIST, []);
+        tableList.value = localList;
     })
+
+    // 检测变更
+    watch(() => [...tableList.value], (val) => {
+        // 通知content 变更数据
+        noticeSync(val)
+    }, { deep: true })
 
     // 新增匹配规则
     const addRow = () => {
