@@ -14,6 +14,9 @@
 
 .icon {
   cursor: pointer;
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 .github {
