@@ -52,7 +52,7 @@ class CustomXHR extends XMLHttpRequest {
             // 是否需要匹配
             if (switch_on && match_url) {
                 // 判断是否存在协议匹配
-                if (method && method.toUpperCase() !== this.method) return
+                if (method && ![this.method, "ANY"].includes(method.toUpperCase())) return
                 // 规则匹配
                 const matched = maybeMatching(this.responseURL, match_url, filter_type);
                 if (!matched) return // 退出当前循环

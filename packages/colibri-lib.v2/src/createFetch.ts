@@ -22,7 +22,7 @@ function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Resp
             // 是否需要匹配
             if (switch_on && match_url) {
                 // 判断是否存在协议匹配
-                if (method && method.toUpperCase() !== fetchMethod) return
+                if (method && ![fetchMethod, "ANY"].includes(method.toUpperCase())) return
                 // 规则匹配
                 const matched = maybeMatching(response.url, match_url, filter_type);
                 if (!matched) return // 退出当前循环
