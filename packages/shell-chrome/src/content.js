@@ -33,7 +33,11 @@ initStorage().then(() => {
     chrome.runtime.onMessage.addListener((msg) => {
         console.log("[debug]接收 popup 的消息 转发给 document msg:", msg)
         if (msg.type === Notice.TYPE && msg.to === Notice.TO_CONTENT) {
-            noticeDocumentByContent(msg.key, msg.value);
+            // 判断徽章
+            if (msg.key === NoticeKey.GLOBAL_SWITCH) {
+                // noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, msg.data);
+            }
+            // noticeDocumentByContent(msg.key, msg.value);
         }
     })
 

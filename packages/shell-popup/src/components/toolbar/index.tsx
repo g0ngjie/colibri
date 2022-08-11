@@ -1,6 +1,6 @@
 import { defineComponent, ref } from "vue";
 import { NIcon, NSpace, useDialog, NDrawer } from "naive-ui";
-import { noticeContentByPopup, NoticeKey } from "@colibri/shared-utils";
+import { setTabIcon, setBadge } from "@colibri/shared-utils";
 import styl from "./index.module.scss";
 
 import { useData } from "@/store/data";
@@ -18,7 +18,8 @@ export default defineComponent(() => {
     const handlePaly = (bool: boolean) => {
         if (store.isEmpty) return
         isPlaying.value = bool
-        noticeContentByPopup(NoticeKey.GLOBAL_SWITCH, bool)
+        setTabIcon(bool)
+        if (!bool) setBadge(undefined)
     }
 
     // 清空数据
