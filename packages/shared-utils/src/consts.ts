@@ -19,6 +19,8 @@ export enum Notice {
   TO_POPUP = 'colibri:notice:popup',
   /**通知 document */
   TO_DOCUMENT = 'colibri:notice:document',
+  /**通知 background */
+  TO_BACKGROUND = 'colibri:notice:background',
 }
 
 /**通知Key */

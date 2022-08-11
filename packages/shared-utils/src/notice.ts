@@ -47,3 +47,19 @@ export function noticePopup(key, value) {
         });
     }
 }
+
+/**
+ * 通知 background
+ * @param key
+ * @param value
+ */
+export function noticeBackground(key, value) {
+    if (useRuntime) {
+        target.chrome.runtime.sendMessage({
+            type: Notice.TYPE,
+            to: Notice.TO_BACKGROUND,
+            key,
+            value,
+        });
+    }
+}
