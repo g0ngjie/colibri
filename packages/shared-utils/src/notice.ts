@@ -49,11 +49,11 @@ export function noticePopup(key: NoticeKey, value) {
 }
 
 /**
- * 通知 background
+ * 通知 content -> background
  * @param key
  * @param value
  */
-export function noticeBackground(key: NoticeKey, value) {
+export function noticeBackgroundByContent(key: NoticeKey, value) {
     if (useRuntime) {
         target.chrome.runtime.sendMessage({
             type: Notice.TYPE,

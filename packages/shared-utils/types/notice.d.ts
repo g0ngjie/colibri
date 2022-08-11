@@ -14,8 +14,8 @@ export declare function noticeDocumentByContent(key: NoticeKey, value: any): voi
  */
 export declare function noticePopup(key: NoticeKey, value: any): void;
 /**
- * 通知 background
+ * 通知 content -> background
  * @param key
  * @param value
  */
-export declare function noticeBackground(key: NoticeKey, value: any): void;
+export declare function noticeBackgroundByContent(key: NoticeKey, value: any): void;
