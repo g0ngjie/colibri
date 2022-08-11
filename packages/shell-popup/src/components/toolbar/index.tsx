@@ -1,5 +1,5 @@
 import { defineComponent, ref } from "vue";
-import { NIcon, NSpace, useDialog } from "naive-ui";
+import { NIcon, NSpace, useDialog, NDrawer } from "naive-ui";
 import styl from "./index.module.scss";
 
 import { useData } from "@/store/data";
@@ -8,6 +8,9 @@ import { useData } from "@/store/data";
 export default defineComponent(() => {
 
     const store = useData()
+
+    // 抽屉栏状态
+    const isShowDrawer = ref(false)
 
     // 播放状态
     const isPlaying = ref(false);
@@ -28,13 +31,21 @@ export default defineComponent(() => {
                 store.clearAll()
             }
         })
-
     }
 
     return () => <>
+        <NDrawer
+            v-model:show={isShowDrawer.value}
+            placement="left"
+            trapFocus={false}
+            blockScroll={false}
+            width={300}
+            to="#app"
+        />
         <NSpace justify="space-between" class={styl.spaceContainer}>
+            {/* 左侧抽屉按钮 */}
             <NIcon size={20} class={styl.icon}>
-                <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+                <svg onClick={() => isShowDrawer.value = true} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
                     <path d="M128 768h768v-85.34H128z m0-213.34h768v-85.32H128zM128 256v85.34h768V256z" ></path>
                 </svg>
             </NIcon>
@@ -100,3 +111,4 @@ export default defineComponent(() => {
         </NSpace>
     </>
 })
+

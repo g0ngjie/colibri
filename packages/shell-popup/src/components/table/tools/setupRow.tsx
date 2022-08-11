@@ -1,7 +1,6 @@
 import { defineComponent, ref, onMounted } from "vue";
 import { NForm, NFormItem, NInput, NSelect } from "naive-ui";
 import { ITableRowData } from "@/interfaces";
-import styl from "./style.module.scss";
 
 export default defineComponent({
     props: {

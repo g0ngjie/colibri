@@ -72,7 +72,7 @@ const RowContainer = defineComponent({
                                 v-model:value={props.data.match_url}
                             >
                                 {{
-                                    suffix: <NIcon size={20} class={[styl.regexIcon, props.data.filter_type === 'regex' ? styl.regexActive : '']}>
+                                    suffix: () => <NIcon size={20} class={[styl.regexIcon, props.data.filter_type === 'regex' ? styl.regexActive : '']}>
                                         <svg
                                             onClick={() => setType()}
                                             viewBox="0 0 1024 1024"
