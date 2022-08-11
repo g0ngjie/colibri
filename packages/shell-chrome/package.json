@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf build && vite build",
+    "build": "rm -rf build && webpack --config webpack.config.js",
     "watch": "vite build --watch"
   },
   "keywords": [],
@@ -18,7 +18,8 @@
     "@colibri/shared-utils": "workspace:^1.0.0"
   },
   "devDependencies": {
-    "vite": "^2.9.13",
-    "vite-plugin-static-copy": "^0.6.0"
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
