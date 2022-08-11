@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { NConfigProvider, GlobalThemeOverrides } from "naive-ui";
+import { NConfigProvider, GlobalThemeOverrides, NDialogProvider } from "naive-ui";
 import Index from "./components/index";
 import i18n from "./locales";
 import { useLocale } from "./store/locale";
@@ -14,6 +14,8 @@ export default defineComponent(() => {
         },
     }
     return () => <NConfigProvider themeOverrides={themeOverrides}>
-        <Index />
+        <NDialogProvider>
+            <Index />
+        </NDialogProvider>
     </NConfigProvider>
 })

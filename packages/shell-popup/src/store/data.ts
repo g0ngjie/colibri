@@ -56,6 +56,9 @@ export const useData = defineStore('data', () => {
         tableList.value = [];
     }
 
+    // 是否为空
+    const isEmpty = computed(() => tableList.value.length === 0);
+
     return {
         title,
         tableList,
@@ -63,5 +66,6 @@ export const useData = defineStore('data', () => {
         updateSwitchById,
         collapseAll,
         clearAll,
+        isEmpty,
     }
 })

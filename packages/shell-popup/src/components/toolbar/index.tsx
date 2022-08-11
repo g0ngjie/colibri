@@ -1,5 +1,5 @@
 import { defineComponent, ref } from "vue";
-import { NIcon, NSpace } from "naive-ui";
+import { NIcon, NSpace, useDialog } from "naive-ui";
 import styl from "./index.module.scss";
 
 import { useData } from "@/store/data";
@@ -12,7 +12,23 @@ export default defineComponent(() => {
     // 播放状态
     const isPlaying = ref(false);
     const handlePaly = (bool: boolean) => {
+        if (store.isEmpty) return
         isPlaying.value = bool
+    }
+
+    // 清空数据
+    const dialog = useDialog()
+    const handleClean = () => {
+        dialog.warning({
+            title: 'Tips',
+            content: 'sure to clean all data?',
+            positiveText: 'Ok',
+            negativeText: 'Cancel',
+            onPositiveClick: () => {
+                store.clearAll()
+            }
+        })
+
     }
 
     return () => <>
@@ -30,14 +46,14 @@ export default defineComponent(() => {
                         </path>
                     </svg>
                 </NIcon> */}
-                <NIcon size={20} class={styl.icon}>
+                <NIcon size={20} class={[styl.icon, store.isEmpty && styl.iconDisabled]}>
                     {/* 清空 */}
-                    <svg onClick={store.clearAll} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+                    <svg onClick={handleClean} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
                         <path d="M824.4 438.8c0-37.6-30-67.6-67.6-67.6l-135.2 0L621.6 104.8c0-37.6-30-67.6-67.6-67.6-37.6 0-67.6 30-67.6 67.6l0 266.4L358.8 371.2c-37.6 0-67.6 30-67.6 67.6l0 67.6L828 506.4l0-67.6L824.4 438.8 824.4 438.8zM824.4 574c-11.2 0-536.8 0-536.8 0S250 972 88.4 972L280 972c75.2 0 108.8-217.6 108.8-217.6s33.6 195.2 3.6 217.6l105.2 0c-3.6 0 0 0 11.2 0 52.4-7.6 60-247.6 60-247.6s52.4 244 45.2 244c-26.4 0-78.8 0-105.2 0l0 0 154 0c-7.6 0 0 0 11.2 0 48.8-11.2 52.4-187.6 52.4-187.6s22.4 187.6 15.2 187.6c-18.8 0-48.8 0-67.6 0l-3.6 0 90 0C895.6 972 903.2 784.4 824.4 574L824.4 574z">
                         </path>
                     </svg>
                 </NIcon>
-                <NIcon size={20} class={styl.icon}>
+                <NIcon size={20} class={[styl.icon, store.isEmpty && styl.iconDisabled]}>
                     {
                         isPlaying.value
                             ?
@@ -54,7 +70,7 @@ export default defineComponent(() => {
                             </svg>)
                     }
                 </NIcon>
-                <NIcon size={20} class={styl.icon}>
+                <NIcon size={20} class={[styl.icon, store.isEmpty && styl.iconDisabled]}>
                     {/* 折叠 */}
                     <svg onClick={store.collapseAll} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
                         <path d="M708.010667 230.016l-196.010667 196.010667-196.010667-196.010667 59.989333-59.989333 136.021333 136.021333 136.021333-136.021333zM315.989333 793.984l196.010667-196.010667 196.010667 196.010667-59.989333 59.989333-136.021333-136.021333-136.021333 136.021333z">

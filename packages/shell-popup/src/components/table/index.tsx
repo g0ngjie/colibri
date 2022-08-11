@@ -1,6 +1,6 @@
 import { defineComponent, ref } from "vue";
 import { useData } from "@/store/data";
-import { NButton, NSwitch, NInput, NSelect, NIcon, NInputGroup } from "naive-ui";
+import { NButton, NSwitch, NInput, NSelect, NIcon, NInputGroup, NEmpty } from "naive-ui";
 import { CollapseBtn, SetUpRow } from "./tools";
 import { ITableRowData } from "@/interfaces";
 import styl from "./index.module.scss";
@@ -11,11 +11,17 @@ export default defineComponent(() => {
     const store = useData()
     return () => <div class={styl.tableContainer}>
         {
-            store.tableList.map((item) => {
-                return <div class={styl.rowContainer}>
-                    <RowContainer data={item} />
+            store.isEmpty
+                ?
+                <div class={styl.emptyContainer}>
+                    <NEmpty size="large"></NEmpty>
                 </div>
-            })
+                :
+                store.tableList.map((item) => {
+                    return <div class={styl.rowContainer}>
+                        <RowContainer data={item} />
+                    </div>
+                })
         }
     </div>
 })

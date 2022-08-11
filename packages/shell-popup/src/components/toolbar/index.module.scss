@@ -19,6 +19,14 @@
   }
 }
 
+.iconDisabled {
+  cursor: not-allowed;
+  color: #c0c4cc;
+  &:active {
+    transform: none;
+  }
+}
+
 .github {
   margin-left: 1.25rem;
 }
