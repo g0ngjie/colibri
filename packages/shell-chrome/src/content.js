@@ -35,7 +35,7 @@ initStorage().then(() => {
         if (msg.type === Notice.TYPE && msg.to === Notice.TO_CONTENT) {
             // 判断徽章
             if (msg.key === NoticeKey.GLOBAL_SWITCH) {
-                // noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, msg.data);
+                noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, msg.data);
             }
             // noticeDocumentByContent(msg.key, msg.value);
         }
