@@ -27,6 +27,9 @@ export default defineComponent(() => {
             content: 'sure to clean all data?',
             positiveText: 'Ok',
             negativeText: 'Cancel',
+            style: {
+                marginTop: '100px'
+            },
             onPositiveClick: () => {
                 store.clearAll()
             }
