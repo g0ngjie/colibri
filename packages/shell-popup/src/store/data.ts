@@ -44,10 +44,24 @@ export const useData = defineStore('data', () => {
         })
     }
 
+    // 全部收起
+    const collapseAll = () => {
+        tableList.value.forEach(item => {
+            item.expand = false;
+        })
+    }
+
+    // 全部清空
+    const clearAll = () => {
+        tableList.value = [];
+    }
+
     return {
         title,
         tableList,
         addRow,
         updateSwitchById,
+        collapseAll,
+        clearAll,
     }
 })
