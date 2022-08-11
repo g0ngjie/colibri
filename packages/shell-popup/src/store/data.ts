@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from "vue";
 import { defineStore } from "pinia";
 import { ITableRowData } from "@/interfaces";
+import { uuid } from "@alrale/common-lib";
 
 export const useData = defineStore('data', () => {
     const title = ref<string>("标题: ")
@@ -9,19 +10,33 @@ export const useData = defineStore('data', () => {
     const tableList = ref<ITableRowData[]>([]);
 
     const list: ITableRowData[] = [
-        { id: '1', match_url: '1', method: 'GET', filter_type: 'regex', hit: 0, switch_on: true, },
-        { id: '2', match_url: '2', method: 'ANY', filter_type: 'normal', hit: 0, switch_on: true, },
-        { id: '3', match_url: '3', method: "PATCH", filter_type: 'normal', hit: 0, switch_on: true, },
-        { id: '4', match_url: '4', method: "DELETE", filter_type: 'normal', hit: 0, switch_on: true, },
-        { id: '4', match_url: '4', method: "PUT", filter_type: 'normal', hit: 0, switch_on: true, },
-        { id: '4', match_url: '4', method: "POST", filter_type: 'normal', hit: 0, switch_on: true, },
+        { id: '1', match_url: '1', method: 'GET', filter_type: 'regex', hit: 0, expand: false, switch_on: true, },
+        // { id: '2', match_url: '2', method: 'ANY', filter_type: 'normal', hit: 0, switch_on: true, },
+        // { id: '3', match_url: '3', method: "PATCH", filter_type: 'normal', hit: 0, switch_on: true, },
+        // { id: '4', match_url: '4', method: "DELETE", filter_type: 'normal', hit: 0, switch_on: true, },
+        // { id: '4', match_url: '4', method: "PUT", filter_type: 'normal', hit: 0, switch_on: true, },
+        // { id: '4', match_url: '4', method: "POST", filter_type: 'normal', hit: 0, switch_on: true, },
     ]
     onMounted(() => {
         tableList.value = list;
     })
 
+    // 新增匹配规则
+    const addRow = () => {
+        tableList.value.push({
+            id: uuid(),
+            match_url: '',
+            method: 'ANY',
+            filter_type: 'normal',
+            hit: 0,
+            switch_on: false,
+            expand: true,
+        })
+    }
+
     return {
         title,
         tableList,
+        addRow,
     }
 })

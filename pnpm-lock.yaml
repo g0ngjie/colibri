@@ -54,6 +54,7 @@ importers:
 
   packages/shell-popup:
     specifiers:
+      '@alrale/common-lib': ^1.0.75
       '@colibri/lib.v2': workspace:^1.0.0
       '@colibri/shared-utils': workspace:^1.0.0
       '@vitejs/plugin-vue': ^2.3.3
@@ -67,6 +68,7 @@ importers:
       vue-i18n: ^9.1.10
       vue-tsc: ^0.34.7
     dependencies:
+      '@alrale/common-lib': 1.0.75
       '@colibri/lib.v2': link:../colibri-lib.v2
       '@colibri/shared-utils': link:../shared-utils
       pinia: 2.0.14_7gwbvmtszsbbeay4sidijbp26i
@@ -82,6 +84,10 @@ importers:
       vue-tsc: 0.34.17_typescript@4.6.4
 
 packages:
+
+  /@alrale/common-lib/1.0.75:
+    resolution: {integrity: sha512-4lB5m7nC1MjejLHN6zzIAh4ay/Mz9XWJA0uoay2Hj9r6R8ezAuE3YEvVmMCWLe92UQFxAlc/JiWodSQB6/VEXg==}
+    dev: false
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}

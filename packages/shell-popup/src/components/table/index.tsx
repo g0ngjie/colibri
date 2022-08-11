@@ -34,7 +34,6 @@ const RowContainer = defineComponent({
         }
     },
     setup(props) {
-        const show = ref(false)
         // 设置type
         const setType = () => {
             props.data.filter_type = props.data.filter_type === 'normal' ? 'regex' : 'normal'
@@ -42,7 +41,7 @@ const RowContainer = defineComponent({
         return () =>
             <>
                 <div class={styl.row}>
-                    <CollapseBtn show={show.value} update={(bool: boolean) => show.value = bool} />
+                    <CollapseBtn show={props.data.expand} update={(bool: boolean) => props.data.expand = bool} />
                     <div class={styl.rowInput}>
                         <NInput size="small" placeholder="url">
                             {{
@@ -62,7 +61,7 @@ const RowContainer = defineComponent({
                     </div>
                 </div>
                 <div class={styl.rowInfoContainer}>
-                    {show.value && <SetUpRow data={props.data} />}
+                    {props.data.expand && <SetUpRow data={props.data} />}
                 </div>
             </>
     }

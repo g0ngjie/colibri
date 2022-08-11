@@ -1,4 +1,4 @@
-import { defineComponent } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 import { NForm, NFormItem, NInput, NSelect } from "naive-ui";
 import { ITableRowData } from "@/interfaces";
 import { IRequestMethod } from "@colibri/lib.v2";
@@ -23,6 +23,12 @@ export default defineComponent({
         }
     },
     setup(props) {
+        const refOverride = ref()
+
+        onMounted(() => {
+            refOverride.value?.focus()
+        })
+
         return () => <>
             <NForm size="small" inline>
                 <NFormItem label="Method">
@@ -33,7 +39,7 @@ export default defineComponent({
                 </NFormItem>
             </NForm>
             <NFormItem size="small" label="Override">
-                <NInput type="textarea"></NInput>
+                <NInput type="textarea" rows={10} ref={refOverride}></NInput>
             </NFormItem>
         </>
     }
