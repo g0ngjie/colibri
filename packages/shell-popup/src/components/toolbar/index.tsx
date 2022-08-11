@@ -1,28 +1,22 @@
 import { defineComponent, ref } from "vue";
 import { NIcon, NSpace, useDialog, NDrawer } from "naive-ui";
-import { setTabIcon, setBadge, noticeContentByPopup, NoticeKey } from "@colibri/shared-utils";
+import { useGlobal } from "@/store/global";
+import { useData } from "@/store/data";
 import styl from "./index.module.scss";
 
-import { useData } from "@/store/data";
 
 // 工具栏: 全局开关 国际化 主题
 export default defineComponent(() => {
 
     const store = useData()
+    const globalData = useGlobal()
 
     // 抽屉栏状态
     const isShowDrawer = ref(false)
 
-    // 播放状态
-    const isPlaying = ref(false);
     const handlePaly = (bool: boolean) => {
         if (store.isEmpty) return
-        isPlaying.value = bool
-        // 通知content 是否启用
-        noticeContentByPopup(NoticeKey.GLOBAL_SWITCH, bool)
-        // 设置徽章状态
-        setTabIcon(bool)
-        if (!bool) setBadge(undefined)
+        globalData.updateGlobalStatus(bool)
     }
 
     // 清空数据
@@ -72,7 +66,7 @@ export default defineComponent(() => {
                 </NIcon>
                 <NIcon size={20} class={[styl.icon, store.isEmpty && styl.iconDisabled]}>
                     {
-                        isPlaying.value
+                        globalData.globalStatus
                             ?
                             // 停止图标
                             (<svg onClick={() => handlePaly(false)} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
