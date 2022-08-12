@@ -30,9 +30,28 @@
 
 .github {
   margin-left: 1.25rem;
+  color: #737373;
 }
 
 .themeIcon {
   cursor: pointer;
   color: #7d828b;
+}
+
+.drawerContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.link {
+  margin-left: 20px;
+  // 取消a标签默认样式
+  text-decoration: none;
+  color: #737373;
+  font-size: 13px;
+  &:hover {
+    color: #7d828b;
+  }
 }

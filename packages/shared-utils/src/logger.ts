@@ -27,5 +27,5 @@ function log(e: Log): void {
  * 声明
  */
 export function printDeclare() {
-    log({ title: 'Addon', content: `Ajax Proxy V2`, backgroundColor: Color.BLUE })
+    log({ title: 'Addon', content: `Ajax Proxy v2`, backgroundColor: Color.BLUE })
 }
