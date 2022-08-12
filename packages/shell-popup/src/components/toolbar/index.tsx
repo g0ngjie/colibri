@@ -134,7 +134,7 @@ const LeftDrawer = defineComponent({
                 placement="left"
                 trapFocus={false}
                 blockScroll={false}
-                width={300}
+                width={250}
                 to="#app"
             >
                 <NDrawerContent

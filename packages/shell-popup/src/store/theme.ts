@@ -7,8 +7,8 @@ import { Theme, getStorage, setStorage, StorageKey } from "@colibri/shared-utils
 function setBg(colorKey: string) {
     const colorMap = {
         [Theme.DARK]: {
-            bg: 'rgba(24, 24, 28, .8)',
-            table: 'rgba(24, 24, 28, .7)',
+            bg: 'rgba(24, 24, 28, .9)',
+            table: 'rgba(24, 24, 28, .5)',
         },
         [Theme.LIGHT]: {
             bg: '#ffffff',
