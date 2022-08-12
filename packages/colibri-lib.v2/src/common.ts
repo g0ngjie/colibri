@@ -10,7 +10,9 @@ export function maybeMatching(url: string, match: string, type: IFilterType = "n
             break;
         // 正则匹配规则
         case "regex":
-            url.match(new RegExp(match, "i")) && (matched = true);
+            try {
+                url.match(new RegExp(match, "i")) && (matched = true);
+            } catch (error) { }
             break;
     }
     return matched;
