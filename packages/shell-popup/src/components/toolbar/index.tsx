@@ -140,17 +140,17 @@ const LeftDrawer = defineComponent({
                 <NDrawerContent
                     title="Colibri 【Ajax Proxy V2】"
                     headerStyle={{ fontSize: '13px', color: '#606266', fontWeight: 600 }}
+                    bodyStyle={{ display: 'flex', flexDirection: 'column' }}
                 >
-                    <NForm
+                    <NFormItem
                         size="small"
                         labelPlacement="left"
                         labelWidth={160}
                         labelAlign="left"
+                        label="Theme"
                     >
-                        <NFormItem label="Theme">
-                            <Theme />
-                        </NFormItem>
-                    </NForm>
+                        <Theme />
+                    </NFormItem>
                 </NDrawerContent>
             </NDrawer>
         </>

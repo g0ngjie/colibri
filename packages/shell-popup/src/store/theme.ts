@@ -4,8 +4,19 @@ import { defineStore } from "pinia";
 import { darkTheme, lightTheme } from "naive-ui";
 import { Theme, getStorage, setStorage, StorageKey } from "@colibri/shared-utils";
 
-function setBg(color: string) {
-    document.documentElement.style.setProperty('--ajax-proxy-v3-global-theme-color', color)
+function setBg(colorKey: string) {
+    const colorMap = {
+        [Theme.DARK]: {
+            bg: 'rgba(24, 24, 28, .8)',
+            table: 'rgba(24, 24, 28, .7)',
+        },
+        [Theme.LIGHT]: {
+            bg: '#ffffff',
+            table: '#f3f4f6',
+        }
+    }
+    document.documentElement.style.setProperty('--ajax-proxy-v3-global-theme-color', colorMap[colorKey].bg);
+    document.documentElement.style.setProperty('--ajax-proxy-v3-table-theme-color', colorMap[colorKey].table);
 }
 
 export const useTheme = defineStore('theme', () => {
@@ -17,7 +28,7 @@ export const useTheme = defineStore('theme', () => {
         const localTheme = getStorage(StorageKey.THEME, Theme.LIGHT)
         if (localTheme === Theme.DARK) {
             isDark.value = true
-            setBg('rgba(24, 24, 28, .9)')
+            setBg(Theme.DARK)
             theme.value = darkTheme
         }
     })
@@ -30,13 +41,13 @@ export const useTheme = defineStore('theme', () => {
                 setStorage(StorageKey.THEME, Theme.DARK)
                 isDark.value = true
                 theme.value = darkTheme
-                setBg('rgba(24, 24, 28, .9)');
+                setBg(Theme.DARK)
                 break;
             case LIGHT:
                 // 同步主题
                 setStorage(StorageKey.THEME, Theme.LIGHT)
                 isDark.value = false
-                setBg('#ffffff');
+                setBg(Theme.LIGHT);
                 theme.value = lightTheme
                 break;
         }
