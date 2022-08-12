@@ -8,6 +8,7 @@ import {
     StorageKey,
     noticeDocumentByContent,
     noticeBackgroundByContent,
+    printDeclare,
 } from "@colibri/shared-utils";
 
 // 在页面上插入代码
@@ -22,6 +23,8 @@ initStorage().then(() => {
     console.log("[debug]storage:", storage)
     script.addEventListener("load", () => {
         if (getStorage(StorageKey.GLOBAL_SWITCH, false)) {
+            // 打印声明
+            printDeclare()
             noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, true);
             noticeBackgroundByContent(NoticeKey.GLOBAL_SWITCH, true);
         }
