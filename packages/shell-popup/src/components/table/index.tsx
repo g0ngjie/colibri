@@ -59,6 +59,7 @@ const RowContainer = defineComponent({
                 <div class={styl.row}>
                     <CollapseBtn show={props.data.expand} update={(bool: boolean) => props.data.expand = bool} />
                     <div class={styl.rowInput}>
+                        {/* URL输入框 */}
                         <NInputGroup>
                             <NSelect
                                 size="small"
@@ -72,7 +73,9 @@ const RowContainer = defineComponent({
                                 v-model:value={props.data.match_url}
                             >
                                 {{
+                                    // 插槽 是否启用正则
                                     suffix: () => <NIcon size={20} class={[styl.regexIcon, props.data.filter_type === 'regex' ? styl.regexActive : '']}>
+                                        {/* 正则图标 */}
                                         <svg
                                             onClick={() => setType()}
                                             viewBox="0 0 1024 1024"
@@ -89,7 +92,9 @@ const RowContainer = defineComponent({
                         </NInputGroup>
                     </div>
                     <div class={styl.rowMethodTag}>
+                        {/* 命中率 */}
                         <div class={styl.options}>{props.data.hit}</div>
+                        {/* 当前规则开关 */}
                         <NSwitch
                             size="small"
                             round={false}
@@ -97,6 +102,7 @@ const RowContainer = defineComponent({
                             onUpdateValue={(bool: boolean) => store.updateSwitchById(props.data.id, bool)}
                             class={styl.options} />
                         <div class={styl.options}>
+                            {/* 菜单设置项 */}
                             <Menus id={props.data.id} />
                         </div>
                     </div>
