@@ -1,7 +1,7 @@
 import { defineComponent, ref } from "vue";
 import { useData } from "@/store/data";
 import { NButton, NSwitch, NInput, NSelect, NIcon, NInputGroup, NEmpty } from "naive-ui";
-import { CollapseBtn, SetUpRow } from "./tools";
+import { CollapseBtn, SetUpRow, Menus } from "./tools";
 import { ITableRowData } from "@/interfaces";
 import styl from "./index.module.scss";
 
@@ -96,6 +96,9 @@ const RowContainer = defineComponent({
                             v-model:value={props.data.switch_on}
                             onUpdateValue={(bool: boolean) => store.updateSwitchById(props.data.id, bool)}
                             class={styl.options} />
+                        <div class={styl.options}>
+                            <Menus id={props.data.id} />
+                        </div>
                     </div>
                 </div>
                 <div class={styl.rowInfoContainer}>
