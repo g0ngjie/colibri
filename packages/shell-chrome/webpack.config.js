@@ -26,7 +26,7 @@ module.exports = {
       }
     ),
   ],
-  devtool: process.env.NODE_ENV !== 'production'
-    ? 'inline-source-map'
-    : false,
+  // devtool: process.env.NODE_ENV !== 'production'
+  //   ? 'inline-source-map'
+  //   : false,
 }
