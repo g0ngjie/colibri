@@ -74,6 +74,45 @@ export const useData = defineStore('data', () => {
     // 是否为空
     const isEmpty = computed(() => tableList.value.length === 0);
 
+    // 根据id删除
+    const removeById = (id: string) => {
+        tableList.value = tableList.value.filter(item => item.id !== id)
+    }
+    // 复制
+    const duplicateById = (id: string) => {
+        const target = tableList.value.find(item => item.id === id);
+        if (target) {
+            const newItem = deepOClone(target);
+            newItem.id = uuid();
+            newItem.label = `${newItem.label || ''}_copy`;
+            newItem.switch_on = false;
+            newItem.expand = true;
+            tableList.value.push(newItem);
+        }
+    }
+    // 上移位
+    const moveUpById = (id: string) => {
+        const target = tableList.value.find(item => item.id === id);
+        if (target) {
+            const index = tableList.value.indexOf(target);
+            if (index > 0) {
+                tableList.value.splice(index, 1);
+                tableList.value.splice(index - 1, 0, target);
+            }
+        }
+    }
+    // 下移位
+    const moveDownById = (id: string) => {
+        const target = tableList.value.find(item => item.id === id);
+        if (target) {
+            const index = tableList.value.indexOf(target);
+            if (index < tableList.value.length - 1) {
+                tableList.value.splice(index, 1);
+                tableList.value.splice(index + 1, 0, target);
+            }
+        }
+    }
+
     return {
         title,
         tableList,
@@ -82,5 +121,9 @@ export const useData = defineStore('data', () => {
         collapseAll,
         clearAll,
         isEmpty,
+        removeById,
+        duplicateById,
+        moveUpById,
+        moveDownById,
     }
 })
