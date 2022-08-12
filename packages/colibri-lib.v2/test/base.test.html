@@ -14,40 +14,40 @@
         // 测试基础拦截功能
         // 
         lib.update({
-            switch_on: true,
+            global_on: true,
             matching_content: [
                 {
                     switch_on: true,
-                    match_url: 'http://fakeapi.jsonparseronline.com/users/1',
+                    match_url: 'https://api.github.com/',
                     override: JSON.stringify({ ok: true, text: "success" }),
                 }, {
                     switch_on: true,
-                    match_url: 'http://fakeapi.jsonparseronline.com/posts/1',
+                    match_url: 'https://api.github.com/feeds',
                     override: JSON.stringify({ ok: true, text: "success" }),
                 }
             ]
         })
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://fakeapi.jsonparseronline.com/users/1', true);
+        xhr.open('GET', 'https://api.github.com/', true);
         xhr.send();
         xhr.onload = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 console.log(this.responseText, 'xhr');
             }
         }
-        fetch("http://fakeapi.jsonparseronline.com/users/1")
+        fetch("https://api.github.com/")
             .then(response => response.text())
             .then(json => console.log(json, 'fetch'))
 
 
-        fetch("http://fakeapi.jsonparseronline.com/posts/1", {
+        fetch("https://api.github.com/feeds", {
             "method": "DELETE",
             "headers": {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
             .then(response => response.json())
-            .then(json => console.log(json, 'fetch delete'))
+            .then(json => console.log(json, 'fetch feeds'))
     </script>
 </body>
 

@@ -40,7 +40,7 @@ class CustomXHR extends XMLHttpRequest {
             password?: string | null,
         ) => {
             // 获取当前请求协议
-            this.method = (method || 'GET').toUpperCase()
+            this.method = (method || 'ANY').toUpperCase()
             open.apply(this, [method, url, async !== undefined ? async : true, username, password])
         }
     }

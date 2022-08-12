@@ -10,7 +10,7 @@ export const OriginFetch = window.fetch.bind(window)
 export const initFetchState = (state: Ref<IGlobalState>) => globalState = state
 
 function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
-    let fetchMethod: string | undefined
+    let fetchMethod: string | undefined | "ANY" = "ANY"
     if (init) {
         fetchMethod = init.method?.toUpperCase()
     }
