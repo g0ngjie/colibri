@@ -7,6 +7,7 @@ import {
     NoticeKey,
     StorageKey,
     noticeDocumentByContent,
+    noticeBackgroundByContent,
 } from "@colibri/shared-utils";
 
 // 在页面上插入代码
@@ -23,6 +24,7 @@ initStorage().then(() => {
         // ["globalSwitchOn", "proxy_routes", "mode", "redirect"]
         if (getStorage(StorageKey.GLOBAL_SWITCH, false)) {
             noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, true);
+            noticeBackgroundByContent(NoticeKey.GLOBAL_SWITCH, true);
         }
         if (getStorage(StorageKey.INTERCEPT_LIST)) {
             noticeDocumentByContent(NoticeKey.INTERCEPT_LIST, getStorage(StorageKey.INTERCEPT_LIST));

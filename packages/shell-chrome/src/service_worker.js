@@ -1,7 +1,18 @@
 
 console.log("Colibri service_worker.js")
+import {
+    Notice,
+    NoticeKey,
+} from "@colibri/shared-utils/lib/consts";
 
-// 这里可能不需要了。 感觉 popup 和 background 权限一致
-chrome.action.setBadgeBackgroundColor({ color: "#006d75" });
-// chrome.action.setBadgeBackgroundColor({ color: "#F56C6C" });
-chrome.action.setBadgeText({ text: '+1' });
+// 接收content 传来的信息
+chrome.runtime.onMessage.addListener((msg) => {
+    if (msg.type === Notice.TYPE && msg.to === Notice.TO_BACKGROUND) {
+        // 判断启用状态
+        if (msg.key === NoticeKey.GLOBAL_SWITCH) {
+            chrome.action.setIcon({
+                path: msg.value ? "icons/128.png" : "icons/128g.png",
+            });
+        }
+    }
+});

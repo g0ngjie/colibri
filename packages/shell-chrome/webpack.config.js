@@ -25,8 +25,8 @@ module.exports = {
         patterns: staticFiles,
       }
     ),
-  ]
-  // devtool: process.env.NODE_ENV !== 'production'
-  //   ? 'inline-source-map'
-  //   : false,
+  ],
+  devtool: process.env.NODE_ENV !== 'production'
+    ? 'inline-source-map'
+    : false,
 }
