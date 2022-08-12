@@ -1,6 +1,6 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import { useData } from "@/store/data";
-import { NButton, NSwitch, NInput, NSelect, NIcon, NInputGroup, NEmpty } from "naive-ui";
+import { NSwitch, NInput, NSelect, NIcon, NInputGroup, NEmpty } from "naive-ui";
 import { CollapseBtn, SetUpRow, Menus } from "./tools";
 import { ITableRowData } from "@/interfaces";
 import styl from "./index.module.scss";
@@ -34,10 +34,6 @@ const MethodOptions = [
     { label: "DELETE", value: "DELETE", },
     { label: "PATCH", value: "PATCH", },
 ];
-
-interface IRowContainerProps {
-    data: ITableRowData
-}
 
 const RowContainer = defineComponent({
     props: {

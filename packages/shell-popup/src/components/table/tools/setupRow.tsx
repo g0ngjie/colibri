@@ -1,5 +1,5 @@
 import { defineComponent, ref, onMounted } from "vue";
-import { NForm, NFormItem, NInput, NSelect } from "naive-ui";
+import { NForm, NFormItem, NInput } from "naive-ui";
 import { ITableRowData } from "@/interfaces";
 
 // 展开面板设置项
