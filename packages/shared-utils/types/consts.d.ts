@@ -30,3 +30,10 @@ export declare enum NoticeKey {
     /**徽章状态 */
     BADGE_STATUS = "colibri:notice:badge-status"
 }
+/**主题 */
+export declare const Theme: {
+    /**黑色 */
+    DARK: string;
+    /**白色 */
+    LIGHT: string;
+};

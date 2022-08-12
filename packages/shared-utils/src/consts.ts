@@ -32,3 +32,11 @@ export enum NoticeKey {
   /**徽章状态 */
   BADGE_STATUS = 'colibri:notice:badge-status',
 }
+
+/**主题 */
+export const Theme = {
+  /**黑色 */
+  DARK: "dark",
+  /**白色 */
+  LIGHT: "light"
+}

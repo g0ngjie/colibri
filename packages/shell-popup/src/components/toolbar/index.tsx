@@ -1,7 +1,16 @@
 import { defineComponent, ref } from "vue";
-import { NIcon, NSpace, useDialog, NDrawer } from "naive-ui";
+import {
+    NIcon,
+    NSpace,
+    useDialog,
+    NDrawer,
+    NDrawerContent,
+    NForm,
+    NFormItem,
+} from "naive-ui";
 import { useGlobal } from "@/store/global";
 import { useData } from "@/store/data";
+import Theme from "./theme";
 import styl from "./index.module.scss";
 
 
@@ -37,14 +46,8 @@ export default defineComponent(() => {
     }
 
     return () => <>
-        <NDrawer
-            v-model:show={isShowDrawer.value}
-            placement="left"
-            trapFocus={false}
-            blockScroll={false}
-            width={300}
-            to="#app"
-        />
+        {/* 左侧抽屉 */}
+        <LeftDrawer visibleRef={isShowDrawer} />
         <NSpace justify="space-between" class={styl.spaceContainer}>
             {/* 左侧抽屉按钮 */}
             <NIcon size={20} class={styl.icon}>
@@ -115,3 +118,40 @@ export default defineComponent(() => {
     </>
 })
 
+const LeftDrawer = defineComponent({
+    props: {
+        visibleRef: {
+            type: Object,
+            default: () => ({ value: false })
+        }
+    },
+    setup(props) {
+
+        return () => <>
+            <NDrawer
+                v-model:show={props.visibleRef.value}
+                placement="left"
+                trapFocus={false}
+                blockScroll={false}
+                width={300}
+                to="#app"
+            >
+                <NDrawerContent
+                    title="Colibri 【Ajax Proxy V2】"
+                    headerStyle={{ fontSize: '13px', color: '#606266', fontWeight: 600 }}
+                >
+                    <NForm
+                        size="small"
+                        labelPlacement="left"
+                        labelWidth={160}
+                        labelAlign="left"
+                    >
+                        <NFormItem label="Theme">
+                            <Theme />
+                        </NFormItem>
+                    </NForm>
+                </NDrawerContent>
+            </NDrawer>
+        </>
+    }
+})
