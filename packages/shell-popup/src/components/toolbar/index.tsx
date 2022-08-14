@@ -99,14 +99,18 @@ export default defineComponent(() => {
                     size={20}
                     class={[styl.icon, store.tableList.length > 50 && styl.iconDisabled]}
                 >
-                    {/* 新增 */}
-                    <svg onClick={() => {
-                        // 上限限制 50条
-                        if (store.tableList.length <= 50) store.addRow();
-                    }} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
-                        <path d="M853.333333 480H544V170.666667c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v309.333333H170.666667c-17.066667 0-32 14.933333-32 32s14.933333 32 32 32h309.333333V853.333333c0 17.066667 14.933333 32 32 32s32-14.933333 32-32V544H853.333333c17.066667 0 32-14.933333 32-32s-14.933333-32-32-32z">
-                        </path>
-                    </svg>
+                    <span title={
+                        store.tableList.length > 50 ? 'Support up to 50 pieces of data' : 'New Rules'
+                    }>
+                        {/* 新增 */}
+                        <svg onClick={() => {
+                            // 上限限制 50条
+                            if (store.tableList.length <= 50) store.addRow();
+                        }} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+                            <path d="M853.333333 480H544V170.666667c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v309.333333H170.666667c-17.066667 0-32 14.933333-32 32s14.933333 32 32 32h309.333333V853.333333c0 17.066667 14.933333 32 32 32s32-14.933333 32-32V544H853.333333c17.066667 0 32-14.933333 32-32s-14.933333-32-32-32z">
+                            </path>
+                        </svg>
+                    </span>
                 </NIcon>
                 {/* <NIcon size={20} class={[styl.icon, styl.github]}>
                     <svg

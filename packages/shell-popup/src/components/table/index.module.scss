@@ -7,6 +7,7 @@
 
 .emptyContainer {
   padding-top: 150px;
+  height: calc(var(--ajax-proxy-v3-global-height) - 220px);
 }
 
 .rowContainer {

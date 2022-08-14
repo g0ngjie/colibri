@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from "path";
@@ -14,7 +14,8 @@ export default defineConfig({
         // drop_console: true,
         drop_debugger: true,
       }
-    }
+    },
+    chunkSizeWarningLimit: 1 << 10, // 1024Kb -> 1M
   },
   resolve: {
     alias: {
@@ -28,5 +29,6 @@ export default defineConfig({
       transformOn: true,
       mergeProps: true,
     }),
+    splitVendorChunkPlugin(),
   ]
 })
