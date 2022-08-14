@@ -1,6 +1,7 @@
 .tableContainer {
   // background-color: #f3f4f6;
   background-color: var(--ajax-proxy-v3-table-theme-color);
+  transition: 0.35s var(--cubic-bezier-ease-in-out);
   margin-top: 50px;
 }
 
