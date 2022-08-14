@@ -5,8 +5,8 @@ const useTabs = typeof target.chrome !== "undefined" && typeof target.chrome.tab
 /**获取当前标签页 */
 export function useCurrentTab(): Promise<{
     tab: any,
-    url: string | undefined,
-    title: string | undefined,
+    url: string | undefined, // 非正常: edge://extensions/ 返回 undefined
+    title: string | undefined, // 同 url
     highlighted: boolean,
 } | void> {
     if (useTabs) {
