@@ -29,7 +29,7 @@ export const useLocale = defineStore('locale', () => {
     }
     // 初始化本地语言
     const initLang = () => {
-        const storeLang = getStorage(StorageKey.LANGUAGE, "zh-CN")
+        const storeLang = getStorage(StorageKey.LANGUAGE, "en")
         language.value = storeLang
     }
 
