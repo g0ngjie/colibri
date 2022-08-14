@@ -25,6 +25,7 @@
     "vite": "^2.9.13"
   },
   "dependencies": {
+    "@colibri/shared-utils": "workspace:^1.0.0",
     "@vue/reactivity": "^3.2.37"
   }
 }

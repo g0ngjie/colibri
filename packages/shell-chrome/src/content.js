@@ -19,8 +19,6 @@ document.documentElement.appendChild(script);
 
 initStorage().then(() => {
 
-    const storage = getStorage("sync", "default value is null");
-    console.log("[debug]storage:", storage)
     script.addEventListener("load", () => {
         if (getStorage(StorageKey.GLOBAL_SWITCH, false)) {
             // 打印声明
@@ -45,8 +43,21 @@ initStorage().then(() => {
             if (msg.key === NoticeKey.INTERCEPT_LIST) {
                 noticeDocumentByContent(NoticeKey.INTERCEPT_LIST, msg.value);
             }
+            // 刷新命中率
+            if (msg.key === NoticeKey.HIT_RATE) {
+                noticeBackgroundByContent(NoticeKey.HIT_RATE, msg.value);
+            }
         }
     })
+
+    // 接收lib 传来的信息 转发给 popup
+    window.addEventListener(
+        Notice.TO_CONTENT,
+        function (event) {
+            noticeBackgroundByContent(NoticeKey.HIT_RATE, event.detail)
+        },
+        false
+    );
 
 })
 

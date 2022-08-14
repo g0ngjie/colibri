@@ -10,10 +10,6 @@ export declare function noticeContentByPopup(key: NoticeKey, value: any): void;
  */
 export declare function noticeDocumentByContent(key: NoticeKey, value: any): void;
 /**
- * 通知 popup
- */
-export declare function noticePopup(key: NoticeKey, value: any): void;
-/**
  * 通知 content -> background
  * @param key
  * @param value

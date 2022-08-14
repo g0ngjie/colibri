@@ -28,7 +28,9 @@ export declare enum NoticeKey {
     /**拦截数据列表 */
     INTERCEPT_LIST = "colibri:notice:intercept-list",
     /**徽章状态 */
-    BADGE_STATUS = "colibri:notice:badge-status"
+    BADGE_STATUS = "colibri:notice:badge-status",
+    /**命中率 */
+    HIT_RATE = "colibri:notice:hit-rate"
 }
 /**主题 */
 export declare const Theme: {

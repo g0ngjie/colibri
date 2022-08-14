@@ -24,9 +24,11 @@ importers:
 
   packages/colibri-lib.v2:
     specifiers:
+      '@colibri/shared-utils': workspace:^1.0.0
       '@vue/reactivity': ^3.2.37
       vite: ^2.9.13
     dependencies:
+      '@colibri/shared-utils': link:../shared-utils
       '@vue/reactivity': 3.2.37
     devDependencies:
       vite: 2.9.13

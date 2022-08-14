@@ -1,4 +1,5 @@
 import { IFilterType } from "./types";
+import { Notice } from "@colibri/shared-utils";
 
 // match_url规则匹配
 export function maybeMatching(url: string, match: string, type: IFilterType = "normal") {
@@ -21,7 +22,7 @@ export function maybeMatching(url: string, match: string, type: IFilterType = "n
 // 通知到 content 命中统计
 export function notice(url: string, match_url: string) {
     window.dispatchEvent(
-        new CustomEvent("core_notice", {
+        new CustomEvent(Notice.TO_CONTENT, {
             detail: { url, match_url },
         })
     );

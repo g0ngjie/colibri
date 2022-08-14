@@ -41,20 +41,6 @@ export function noticeDocumentByContent(key: NoticeKey, value) {
 }
 
 /**
- * 通知 popup
- */
-export function noticePopup(key: NoticeKey, value) {
-    if (useRuntime) {
-        target.chrome.runtime.sendMessage({
-            type: Notice.TYPE,
-            to: Notice.TO_POPUP,
-            key,
-            value,
-        });
-    }
-}
-
-/**
  * 通知 content -> background
  * @param key
  * @param value
