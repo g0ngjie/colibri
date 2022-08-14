@@ -1,6 +1,10 @@
 import { defineComponent } from "vue";
-import { NConfigProvider, GlobalThemeOverrides, NDialogProvider } from "naive-ui";
-import { zhCN, enUS, zhTW, dateZhCN, dateEnUS, dateZhTW } from "naive-ui/lib/locales";
+import {
+    NConfigProvider,
+    GlobalThemeOverrides,
+    NDialogProvider,
+    zhCN, enUS, zhTW, dateZhCN, dateEnUS, dateZhTW
+} from "naive-ui";
 import Index from "./components/index";
 import { useLocale } from "./store/locale";
 import { useTheme } from "./store/theme";
