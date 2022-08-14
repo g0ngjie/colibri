@@ -2,7 +2,7 @@ import { target } from "./env";
 
 const useTabs = typeof target.chrome !== "undefined" && typeof target.chrome.tabs !== "undefined";
 
-interface IChromeTab {
+export interface IChromeTab {
     active: boolean;
     audible: boolean;
     autoDiscardable: boolean;

@@ -1,4 +1,4 @@
-interface IChromeTab {
+export interface IChromeTab {
     active: boolean;
     audible: boolean;
     autoDiscardable: boolean;
@@ -23,4 +23,3 @@ interface IChromeTab {
 }
 /**获取当前标签页 */
 export declare function useCurrentTab(): Promise<IChromeTab | void>;
-export {};
