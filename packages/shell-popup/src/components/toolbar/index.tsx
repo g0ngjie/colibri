@@ -68,7 +68,9 @@ export default defineComponent(() => {
                 </NIcon> */}
                 <NIcon size={20} class={[styl.icon, store.isEmpty && styl.iconDisabled]}>
                     {/* 清空 */}
-                    <svg onClick={handleClean} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+                    <svg onClick={
+                        store.isEmpty ? undefined : handleClean
+                    } viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
                         <path d="M824.4 438.8c0-37.6-30-67.6-67.6-67.6l-135.2 0L621.6 104.8c0-37.6-30-67.6-67.6-67.6-37.6 0-67.6 30-67.6 67.6l0 266.4L358.8 371.2c-37.6 0-67.6 30-67.6 67.6l0 67.6L828 506.4l0-67.6L824.4 438.8 824.4 438.8zM824.4 574c-11.2 0-536.8 0-536.8 0S250 972 88.4 972L280 972c75.2 0 108.8-217.6 108.8-217.6s33.6 195.2 3.6 217.6l105.2 0c-3.6 0 0 0 11.2 0 52.4-7.6 60-247.6 60-247.6s52.4 244 45.2 244c-26.4 0-78.8 0-105.2 0l0 0 154 0c-7.6 0 0 0 11.2 0 48.8-11.2 52.4-187.6 52.4-187.6s22.4 187.6 15.2 187.6c-18.8 0-48.8 0-67.6 0l-3.6 0 90 0C895.6 972 903.2 784.4 824.4 574L824.4 574z">
                         </path>
                     </svg>
@@ -105,10 +107,10 @@ export default defineComponent(() => {
                         store.tableList.length > 50 ? t('icon.limitRules') : t('icon.newRules')
                     }>
                         {/* 新增 */}
-                        <svg onClick={() => {
+                        <svg onClick={
                             // 上限限制 50条
-                            if (store.tableList.length <= 50) store.addRow();
-                        }} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+                            store.tableList.length <= 50 ? store.addRow : undefined
+                        } viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="256" height="256">
                             <path d="M853.333333 480H544V170.666667c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v309.333333H170.666667c-17.066667 0-32 14.933333-32 32s14.933333 32 32 32h309.333333V853.333333c0 17.066667 14.933333 32 32 32s32-14.933333 32-32V544H853.333333c17.066667 0 32-14.933333 32-32s-14.933333-32-32-32z">
                             </path>
                         </svg>
