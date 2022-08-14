@@ -5,7 +5,7 @@ import en from "./en";
 import zhCN from "./zh-CN";
 
 export default createI18n({
-    locale: "zh-CN",
+    locale: "en",
     allowComposition: true, // you need to specify that!
     legacy: false,
     globalInjection: true,

@@ -12,12 +12,14 @@ import {
 import { useGlobal } from "@/store/global";
 import { useData } from "@/store/data";
 import Theme from "./theme";
+import { useI18n } from "vue-i18n";
 import styl from "./index.module.scss";
 
 
 // 工具栏: 全局开关 国际化 主题
 export default defineComponent(() => {
 
+    const { t } = useI18n();
     const store = useData()
     const globalData = useGlobal()
 
@@ -100,7 +102,7 @@ export default defineComponent(() => {
                     class={[styl.icon, store.tableList.length > 50 && styl.iconDisabled]}
                 >
                     <span title={
-                        store.tableList.length > 50 ? 'Support up to 50 pieces of data' : 'New Rules'
+                        store.tableList.length > 50 ? t('icon.limitRules') : t('icon.newRules')
                     }>
                         {/* 新增 */}
                         <svg onClick={() => {

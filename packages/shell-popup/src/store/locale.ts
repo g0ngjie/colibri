@@ -1,6 +1,7 @@
 
 import { computed, ref } from "vue";
 import { defineStore } from "pinia";
+import locale from "@/locales";
 import { StorageKey, setStorage, getStorage } from '@colibri/shared-utils'
 
 type Locale = "en" | "zh-CN" | "zh-TW" | "zh";
@@ -23,6 +24,7 @@ export const useLocale = defineStore('locale', () => {
     }
     // 更新本地语言
     const syncLangurage = (lang: Locale) => {
+        locale.global.locale.value = lang
         setStorage(StorageKey.LANGUAGE, lang)
     }
     // 初始化本地语言
