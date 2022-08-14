@@ -11,13 +11,13 @@ export default defineComponent(() => {
     const store = useData()
     return () => <div class={styl.tableContainer}>
         {
-            store.isEmpty
+            store.interceptors.length === 0
                 ?
                 <div class={styl.emptyContainer}>
                     <NEmpty size="large"></NEmpty>
                 </div>
                 :
-                store.tableList.map((item) => {
+                store.interceptors.map((item) => {
                     return <div class={styl.rowContainer}>
                         <RowContainer data={item} />
                     </div>

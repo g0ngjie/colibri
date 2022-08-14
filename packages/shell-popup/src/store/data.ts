@@ -22,9 +22,11 @@ function noticeSync(list: ITableRowData[]) {
 }
 
 export const useData = defineStore('data', () => {
-    const title = ref<string>("标题: ")
+
     // 匹配规则列表
     const tableList = ref<ITableRowData[]>([]);
+    // 搜索关键字
+    const searchKey = ref<string>("");
 
     onMounted(() => {
         const localList = getStorage(StorageKey.INTERCEPT_LIST, []);
@@ -115,8 +117,23 @@ export const useData = defineStore('data', () => {
         }
     }
 
+    // 更新搜索关键字
+    const updateSearchKey = (key: string) => {
+        searchKey.value = key;
+    }
+
+    // 搜索结果集
+    const interceptors = computed(() => {
+        if (searchKey.value) {
+            return tableList.value.filter(item => {
+                return (item.label || '').includes(searchKey.value) || item.match_url.includes(searchKey.value);
+            })
+        }
+        else return tableList.value;
+    })
+
     return {
-        title,
+        interceptors,
         tableList,
         addRow,
         updateSwitchById,
@@ -127,5 +144,6 @@ export const useData = defineStore('data', () => {
         duplicateById,
         moveUpById,
         moveDownById,
+        updateSearchKey,
     }
 })
