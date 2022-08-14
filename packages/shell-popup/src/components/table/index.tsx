@@ -3,7 +3,6 @@ import { useData } from "@/store/data";
 import { NSwitch, NInput, NSelect, NIcon, NInputGroup, NEmpty } from "naive-ui";
 import { CollapseBtn, SetUpRow, Menus } from "./tools";
 import { ITableRowData } from "@/interfaces";
-import { useI18n } from "vue-i18n";
 import styl from "./index.module.scss";
 
 export default defineComponent(() => {
@@ -43,7 +42,6 @@ const RowContainer = defineComponent({
         }
     },
     setup(props) {
-        const { t } = useI18n();
 
         const store = useData()
         // 设置type
@@ -74,7 +72,7 @@ const RowContainer = defineComponent({
                                     // 插槽 是否启用正则
                                     suffix: () => <NIcon size={20} class={[styl.regexIcon, props.data.filter_type === 'regex' ? styl.regexActive : '']}>
                                         {/* 正则图标 */}
-                                        <span title={t("icon.useRegex")}>
+                                        <span title="Enable use of regular expression">
                                             <svg
                                                 onClick={() => setType()}
                                                 viewBox="0 0 1024 1024"
