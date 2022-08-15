@@ -61,7 +61,7 @@ class CustomXHR extends XMLHttpRequest {
                 this.response = override;
                 // 通知
                 if (!this.message_once_lock) {
-                    notice(this.responseURL, match_url);
+                    notice(this.responseURL, match_url, this.method);
                     this.message_once_lock = true;
                 }
             }

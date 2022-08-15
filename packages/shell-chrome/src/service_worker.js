@@ -39,7 +39,10 @@ chrome.runtime.onMessage.addListener((msg) => {
                     // 总命中率
                     let counter = 0;
                     interceptList.forEach((target) => {
-                        if (target.match_url === msg.value?.match_url) {
+                        if (
+                            target.match_url === msg.value?.match_url &&
+                            (target.method === "ANY" || target.method === msg.value?.method)
+                        ) {
                             const totalHit = target.hit ? target.hit + 1 : 1;
                             target.hit = totalHit;
                             counter += totalHit;

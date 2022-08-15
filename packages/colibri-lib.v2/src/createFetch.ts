@@ -29,7 +29,7 @@ function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Resp
                 // 修改响应
                 txt = typeof override === "string" ? override : JSON.stringify(override);
                 // 通知
-                notice(response.url, match_url)
+                notice(response.url, match_url, fetchMethod || "")
             }
         });
 
