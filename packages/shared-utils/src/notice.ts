@@ -39,16 +39,16 @@ export function noticeContentByPopup(key: NoticeKey, value) {
             const tab = tabs[0];
             // 这里校验一下是否当前为一个正常的页面
             // 非正常: edge://extensions/ url: undefined
-            if (tab.url) {
-                // 离线状态 或 网页未加载成功情况下，content_script 未加载
-                // 会导致：Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.
-                target.chrome.tabs.sendMessage(tab.id, {
-                    type: Notice.TYPE,
-                    to: Notice.TO_CONTENT,
-                    key,
-                    value,
-                });
-            }
+            // if (tab.url) ...
+            target.chrome.tabs.sendMessage(tab.id, {
+                type: Notice.TYPE,
+                to: Notice.TO_CONTENT,
+                key,
+                value,
+            }).catch(err => {
+                // 离线状态 或 网页未加载成功情况下，content_script 未加载，导致没有接收方
+                // 会导致：Error: Could not establish connection. Receiving end does not exist.
+            });
         });
     }
 }
