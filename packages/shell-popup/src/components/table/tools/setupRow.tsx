@@ -43,7 +43,10 @@ export default defineComponent({
                     validationStatus={computed(() => feedbackErr.value ? "error" : undefined).value}
                     feedback={feedbackErr.value}
                 >
-                    {/* 设置Override响应 */}
+                    {/*
+                        设置Override响应
+                        后期Vue3 寻找Json支持友好的编辑器，目前暂时未找到
+                    */}
                     <NInput
                         v-model:value={props.data.override}
                         type="textarea"
