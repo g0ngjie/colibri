@@ -1,5 +1,5 @@
 
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { defineStore } from "pinia";
 import { ITableRowData } from "@/interfaces";
 import { uuid, deepOClone } from "@alrale/common-lib";
@@ -24,14 +24,10 @@ function noticeSync(list: ITableRowData[]) {
 export const useData = defineStore('data', () => {
 
     // 匹配规则列表
-    const tableList = ref<ITableRowData[]>([]);
+    const localList = getStorage(StorageKey.INTERCEPT_LIST, []);
+    const tableList = ref<ITableRowData[]>(localList);
     // 搜索关键字
     const searchKey = ref<string>("");
-
-    onMounted(() => {
-        const localList = getStorage(StorageKey.INTERCEPT_LIST, []);
-        tableList.value = localList;
-    })
 
     // 检测变更
     watch(() => [...tableList.value], (val) => {

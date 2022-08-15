@@ -1,9 +1,32 @@
 import { target } from "./env";
 import { Notice, NoticeKey } from "./consts";
-import { IChromeTab } from "./tabs";
 
 const useTabs = typeof target.chrome !== "undefined" && typeof target.chrome.tabs !== "undefined";
 const useRuntime = typeof target.chrome !== "undefined" && typeof target.chrome.runtime !== "undefined";
+
+interface IChromeTab {
+    active: boolean;
+    audible: boolean;
+    autoDiscardable: boolean;
+    discarded: boolean;
+    favIconUrl: string;
+    groupId: number;
+    height: number;
+    highlighted: boolean;
+    id: number;
+    incognito: boolean;
+    index: number;
+    mutedInfo: {
+        muted: boolean;
+    };
+    pinned: boolean;
+    selected: boolean;
+    status: string;
+    title?: string, // 同 url
+    url?: string, // 非正常: edge://extensions/ 返回 undefined
+    width: number;
+    windowId: number;
+}
 
 /**
  * 通知 popup -> content
@@ -17,6 +40,8 @@ export function noticeContentByPopup(key: NoticeKey, value) {
             // 这里校验一下是否当前为一个正常的页面
             // 非正常: edge://extensions/ url: undefined
             if (tab.url) {
+                // 离线状态 或 网页未加载成功情况下，content_script 未加载
+                // 会导致：Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.
                 target.chrome.tabs.sendMessage(tab.id, {
                     type: Notice.TYPE,
                     to: Notice.TO_CONTENT,
