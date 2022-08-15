@@ -11,7 +11,7 @@ function setBg(colorKey: string) {
             table: 'rgba(24, 24, 28, .5)',
         },
         [Theme.LIGHT]: {
-            bg: '#ffffff',
+            bg: '#fcfcfc',
             table: '#f3f4f6',
         }
     }
