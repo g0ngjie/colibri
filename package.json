@@ -9,7 +9,7 @@
     "watch:lib": "pnpm -C ./packages/colibri-lib.v2 watch",
     "watch:chrome": "pnpm -C ./packages/shell-chrome watch",
     "build": "run-s build:all pkg",
-    "build:all": "pnpm -F ./packages/** build",
+    "build:all": "pnpm -F \"./packages/**\" build",
     "build:lib": "pnpm -C ./packages/colibri-lib.v2 build",
     "build:utils": "pnpm -C ./packages/shared-utils build",
     "build:chrome": "pnpm -C ./packages/shell-chrome build",
