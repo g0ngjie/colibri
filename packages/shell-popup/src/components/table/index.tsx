@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
 import { useData } from "@/store/data";
-import { NSwitch, NInput, NSelect, NIcon, NInputGroup, NEmpty } from "naive-ui";
+import { NSwitch, NInput, NSelect, NIcon, NInputGroup, NEmpty, NTag } from "naive-ui";
 import { CollapseBtn, SetUpRow, Menus } from "./tools";
 import { ITableRowData } from "@/interfaces";
 import styl from "./index.module.scss";
@@ -91,7 +91,17 @@ const RowContainer = defineComponent({
                     </div>
                     <div class={styl.rowMethodTag}>
                         {/* 命中率 */}
-                        <div class={styl.options}>{props.data.hit}</div>
+                        <div
+                            class={styl.options}
+                            title={`${props.data.hit} requests intercepted`}
+                        >
+                            <NTag
+                                size="tiny"
+                                closable
+                                onClose={() => store.clearHitRate(props.data.id)}>
+                                {props.data.hit}
+                            </NTag>
+                        </div>
                         {/* 当前规则开关 */}
                         <NSwitch
                             size="small"

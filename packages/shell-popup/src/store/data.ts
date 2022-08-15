@@ -117,6 +117,17 @@ export const useData = defineStore('data', () => {
         }
     }
 
+    // 清理命中率
+    const clearHitRate = (id: string) => {
+        tableList.value.forEach(item => {
+            if (item.id === id) {
+                item.hit = 0;
+            }
+        })
+        // 需要同步一下命中率
+        noticeContentByPopup(NoticeKey.HIT_RATE, null);
+    }
+
     // 更新搜索关键字
     const updateSearchKey = (key: string) => {
         searchKey.value = key;
@@ -145,5 +156,6 @@ export const useData = defineStore('data', () => {
         moveUpById,
         moveDownById,
         updateSearchKey,
+        clearHitRate,
     }
 })
