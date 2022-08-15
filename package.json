@@ -8,19 +8,24 @@
     "watch": "run-p watch:lib watch:chrome",
     "watch:lib": "pnpm -C ./packages/colibri-lib.v2 watch",
     "watch:chrome": "pnpm -C ./packages/shell-chrome watch",
-    "build": "run-s clean:build build:utils build:lib build:chrome build:popup pkg",
+    "build": "run-s build:all pkg",
+    "build:all": "pnpm -F ./packages/** build",
     "build:lib": "pnpm -C ./packages/colibri-lib.v2 build",
     "build:utils": "pnpm -C ./packages/shared-utils build",
     "build:chrome": "pnpm -C ./packages/shell-chrome build",
     "build:popup": "pnpm -C ./packages/shell-popup build",
     "clean:build": "rm -rf ./packages/colibri-lib.v2/lib ./packages/shell-chrome/build ./packages/shared-utils/lib",
     "release": "node release.js",
-    "pkg": "rm -rf ./packages/shell-chrome/build/popups && cp -r ./packages/shell-popup/dist ./packages/shell-chrome/build/popups",
-    "zip": "node ./extension-zips.js"
+    "pkg": "cp -r ./packages/shell-popup/dist ./packages/shell-chrome/build/popups",
+    "zip": "node ./extension-zips.js",
+    "preinstall": "npx only-allow pnpm"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/g0ngjie/colibri.git"
+  },
+  "engines": {
+    "node": ">=16.16.0"
   },
   "keywords": [],
   "author": {
