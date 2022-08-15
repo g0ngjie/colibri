@@ -9,14 +9,17 @@ function setBg(colorKey: string) {
         [Theme.DARK]: {
             bg: 'rgba(24, 24, 28, .9)',
             table: 'rgba(24, 24, 28, .5)',
+            border: '#8e8e93'
         },
         [Theme.LIGHT]: {
             bg: '#fcfcfc',
             table: '#f3f4f6',
+            border: '#d4d4d8'
         }
     }
     document.documentElement.style.setProperty('--ajax-proxy-v3-global-theme-color', colorMap[colorKey].bg);
     document.documentElement.style.setProperty('--ajax-proxy-v3-table-theme-color', colorMap[colorKey].table);
+    document.documentElement.style.setProperty('--ajax-proxy-v3-border-theme-color', colorMap[colorKey].border);
 }
 
 export const useTheme = defineStore('theme', () => {
