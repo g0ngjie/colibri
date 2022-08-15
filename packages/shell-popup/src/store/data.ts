@@ -73,6 +73,8 @@ export const useData = defineStore('data', () => {
     // 全部清空
     const clearAll = () => {
         tableList.value = [];
+        // 需要同步一下命中率
+        noticeContentByPopup(NoticeKey.HIT_RATE, null);
     }
 
     // 是否为空
