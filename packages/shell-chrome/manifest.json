@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Colibri: modify HTTP requests",
+  "name": "Colibri: modify Ajax requests",
   "version": "1.0.0",
   "description": "Modify your Ajax requests to test",
   "author": "Gj",
