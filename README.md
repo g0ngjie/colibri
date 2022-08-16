@@ -4,7 +4,7 @@ Ajax proxy v2 版本，基于前一代的沉淀，汇总了工作中发现的一
 
 基于此重新开发了这一套工具，在原有功能的基础上做大幅度的优化。
 
-期间也参考了很多优秀的开源项目：[devtools](https://github.com/vuejs/devtools)、[ajax-hook](https://github.com/wendux/ajax-hook) 等。
+期间也参考了很多优秀的开源项目：[devtools](https://github.com/vuejs/devtools)、[ajax-hook](https://github.com/wendux/ajax-hook) 等，UI 风格参考 tweak。
 
 项目也从原来的单一架构调整为 Pnpm Monorepo。主要技术栈 Vue3 + Tsx + Vite2 + NaiveUI。
 
