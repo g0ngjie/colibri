@@ -10,6 +10,23 @@ Ajax proxy v2 版本，基于前一代的沉淀，汇总了工作中发现的一
 
 此项目仅为学习，目前关于 Manifest V3 版本的相关的问题比较多。如果你有任何关于浏览器插件开发方面的疑惑，并在我这里找到了答案，不胜荣幸！
 
+### 对比 [Ajax Proxy](https://github.com/g0ngjie/ajax-proxy) 做出的优化
+
+|          | Ajax Proxy | Colibri  |
+| -------- | ---------- | -------- |
+| 打包体积 | 2.19MB     | 660KB    |
+| 生效条件 | 需要刷新   | 即时响应 |
+| 协议拦截 | 不支持     | 支持     |
+
+## Monorepo
+
+| Package                                      | Description                  |
+| -------------------------------------------- | ---------------------------- |
+| [colibri-lib.v2](./packages/colibri-lib.v2/) | 用于 Ajax 拦截响应的核心逻辑 |
+| [shared-utils](./packages/shared-utils/)     | 通用类库                     |
+| [shell-chrome](./packages/shell-chrome)      | Chrome/Edge extension        |
+| [shell-popup](./packages/shell-popup/)       | 应用操作面板                 |
+
 ## 安装
 
 待上架
@@ -20,10 +37,6 @@ Ajax proxy v2 版本，基于前一代的沉淀，汇总了工作中发现的一
 
 ![operation](./media/operation.gif)
 
-### 对比 [Ajax Proxy](https://github.com/g0ngjie/ajax-proxy) 做出的优化
+## License
 
-|          | Ajax Proxy | Colibri  |
-| -------- | ---------- | -------- |
-| 打包体积 | 2.19MB     | 660KB    |
-| 生效条件 | 需要刷新   | 即时响应 |
-| 协议拦截 | 不支持     | 支持     |
+[MIT](http://opensource.org/licenses/MIT)
