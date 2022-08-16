@@ -1,5 +1,5 @@
-# colibri
+# Colibri
 
 ajax proxy v2
 
-开发中 ...
+文档维护中 ...
