@@ -18,6 +18,8 @@ todo
 
 ![demo_light](./media/demo_light.png)
 
+![operation](./media/operation.gif)
+
 ### 对比 [Ajax Proxy](https://github.com/g0ngjie/ajax-proxy) 做出的优化
 
 |          | Ajax Proxy | Colibri  |
