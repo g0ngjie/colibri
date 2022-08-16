@@ -7,17 +7,17 @@ const ProgressBar = require('progress')
 const readDirGlob = require('readdir-glob')
 
 const INCLUDE_GLOBS = [
-  'build/**',
   'icons/**',
   'popups/**',
-  'background.js',
   'content.js',
+  'document.js',
   'manifest.json',
+  'service_worker.js',
 ]
 // SKIP_GLOBS makes glob searches more efficient
 const SKIP_DIR_GLOBS = ['node_modules', 'src']
 
-function bytesToSize (bytes) {
+function bytesToSize(bytes) {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
   if (bytes === 0) return '0 Byte'
   const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
@@ -27,7 +27,7 @@ function bytesToSize (bytes) {
 (async () => {
   await writeZip('extension-chrome.zip', 'shell-chrome/build')
 
-  async function writeZip (fileName, packageDir) {
+  async function writeZip(fileName, packageDir) {
     // create a file to stream archive data to.
     const output = fs.createWriteStream(path.join(__dirname, 'zip', fileName))
     const archive = archiver('zip', {
@@ -43,7 +43,7 @@ function bytesToSize (bytes) {
         tSize: '0 Bytes',
       }
 
-      async function parseFileStats () {
+      async function parseFileStats() {
         return new Promise((resolve, reject) => {
           const globber = readDirGlob(path.join('packages', packageDir),
             { pattern: INCLUDE_GLOBS, skip: SKIP_DIR_GLOBS, mark: true, stat: true })
