@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Colibri",
+  "name": "Colibri: modify HTTP requests",
   "version": "1.0.0",
-  "description": "ajax proxy v2",
+  "description": "Modify your Ajax requests to test",
   "author": "Gj",
   "content_scripts": [
     {
@@ -37,7 +37,9 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["document.js"],
+      "resources": [
+        "document.js"
+      ],
       "matches": [
         "<all_urls>"
       ]

@@ -1,7 +1,7 @@
 {
   "name": "colibri",
   "private": true,
-  "description": "ajax proxy v2",
+  "description": "Modify your Ajax requests to test",
   "version": "1.0.0",
   "scripts": {
     "dev": "pnpm -C ./packages/shell-popup dev",
