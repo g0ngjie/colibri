@@ -39,6 +39,8 @@ Ajax proxy v2 版本，基于前一代的沉淀，汇总了工作中发现的一
 
 [Chrome 版本](https://chrome.google.com/webstore/detail/colibri-modify-ajax-respo/kalhaoeoppjgmbfdolmoeonfamnddkhc)
 
+[Edge 版本](https://microsoftedge.microsoft.com/addons/detail/colibri-modify-ajax-resp/lfnnioheafobimpkhmdhgjodeobomcfl)
+
 ## 注意事项
 
 在使用前如果有同类插件启用，需要提前关闭掉避免冲突。
