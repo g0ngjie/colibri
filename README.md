@@ -1,7 +1,5 @@
 # Colibri
 
-![demo_light](./media/demo_light.png)
-
 ![colibri_interceptor](./media/colibri_interceptor.png)
 
 ![operation](./media/operation.gif)
