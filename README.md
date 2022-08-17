@@ -1,5 +1,7 @@
 # Colibri
 
+用来修改 Ajax 的响应数据的 Chrome 浏览器插件
+
 ![colibri_interceptor](./media/colibri_interceptor.png)
 
 ![operation](./media/operation.gif)
@@ -36,6 +38,10 @@ Ajax proxy v2 版本，基于前一代的沉淀，汇总了工作中发现的一
 ## 安装
 
 [Chrome 版本](https://chrome.google.com/webstore/detail/colibri-modify-ajax-respo/kalhaoeoppjgmbfdolmoeonfamnddkhc)
+
+## 注意事项
+
+在使用前如果有同类插件启用，需要提前关闭掉避免冲突。
 
 ## License
 
