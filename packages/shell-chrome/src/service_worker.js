@@ -1,5 +1,5 @@
 
-console.log("Colibri service_worker.js")
+// console.log("Colibri service_worker.js")
 
 import {
     Notice,

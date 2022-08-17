@@ -10,8 +10,7 @@ export default defineConfig({
     minify: "terser",
     terserOptions: {
       compress: {
-        // FIXME: debug
-        // drop_console: true,
+        drop_console: true,
         drop_debugger: true,
       }
     },

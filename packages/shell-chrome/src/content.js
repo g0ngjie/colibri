@@ -1,4 +1,4 @@
-console.log("Colibri content.js")
+// console.log("Colibri content.js")
 
 import {
     getStorage,
@@ -33,7 +33,7 @@ initStorage().then(() => {
 
     // 接收 popup 的消息 转发给 document
     chrome.runtime.onMessage.addListener((msg) => {
-        console.log("[debug]接收 popup 的消息 转发给 document msg:", msg)
+        // console.log("[debug]接收 popup 的消息 转发给 document msg:", msg)
         if (msg.type === Notice.TYPE && msg.to === Notice.TO_CONTENT) {
             // 判断徽章
             if (msg.key === NoticeKey.GLOBAL_SWITCH) {
