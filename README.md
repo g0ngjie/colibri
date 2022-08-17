@@ -35,7 +35,7 @@ Ajax proxy v2 版本，基于前一代的沉淀，汇总了工作中发现的一
 
 ## 安装
 
-待上架
+[Chrome 版本](https://chrome.google.com/webstore/detail/colibri-modify-ajax-respo/kalhaoeoppjgmbfdolmoeonfamnddkhc)
 
 ## License
 
