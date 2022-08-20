@@ -25,7 +25,7 @@ function bytesToSize(bytes) {
 }
 
 (async () => {
-  await writeZip('extension-chrome.zip', 'shell-chrome/build')
+  await writeZip('douyin-payfor-chrome.zip', 'shell-chrome/build')
 
   async function writeZip(fileName, packageDir) {
     // create a file to stream archive data to.
