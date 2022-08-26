@@ -25,6 +25,8 @@ initStorage().then(() => {
             printDeclare()
             noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, true);
             noticeBackgroundByContent(NoticeKey.GLOBAL_SWITCH, true);
+            // 刷新命中率
+            noticeBackgroundByContent(NoticeKey.HIT_RATE, null);
         }
         if (getStorage(StorageKey.INTERCEPT_LIST)) {
             noticeDocumentByContent(NoticeKey.INTERCEPT_LIST, getStorage(StorageKey.INTERCEPT_LIST));
