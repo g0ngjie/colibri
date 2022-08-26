@@ -26,6 +26,8 @@ export const useGlobal = defineStore('global', () => {
         // 设置徽章状态
         setTabIcon(bool)
         if (!bool) setBadge(undefined)
+        // 需要同步一下命中率
+        else noticeContentByPopup(NoticeKey.HIT_RATE, null);
     }
 
     return {

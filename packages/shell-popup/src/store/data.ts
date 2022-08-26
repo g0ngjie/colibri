@@ -8,7 +8,8 @@ import {
     noticeContentByPopup,
     NoticeKey,
     setStorage,
-    StorageKey
+    StorageKey,
+    setBadge,
 } from "@colibri/shared-utils";
 
 // 通知content 变更数据
@@ -55,8 +56,12 @@ export const useData = defineStore('data', () => {
                 item.switch_on = bool;
             }
         })
+        // 获取全局状态
+        const localStatus = getStorage(StorageKey.GLOBAL_SWITCH, false)
         // 需要同步一下命中率
-        noticeContentByPopup(NoticeKey.HIT_RATE, null);
+        if (localStatus) noticeContentByPopup(NoticeKey.HIT_RATE, null);
+        // 当全局禁用时清空
+        else setBadge(undefined);
     }
 
     // 全部收起
