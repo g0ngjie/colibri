@@ -17,7 +17,6 @@
     }
   ],
   "icons": {
-    "32": "icons/32.png",
     "64": "icons/64.png",
     "128": "icons/128.png"
   },
@@ -33,7 +32,7 @@
   "action": {
     "default_title": "Colibri",
     "default_popup": "popups/index.html",
-    "default_icon": "icons/64g.png"
+    "default_icon": "icons/128g.png"
   },
   "web_accessible_resources": [
     {
