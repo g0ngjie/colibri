@@ -55,3 +55,26 @@
     color: #7d828b;
   }
 }
+
+.repairContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .icon {
+    width: 42px;
+    margin: 0 5px;
+    font-size: 13px;
+  }
+  .label {
+    font-size: 15px;
+    color: var(--n-label-text-color);
+    width: 80%;
+    float: left;
+    transition: color 0.3s var(--n-bezier);
+  }
+  .repairLabel {
+    color: #63e6be;
+    font-size: 13px;
+  }
+}

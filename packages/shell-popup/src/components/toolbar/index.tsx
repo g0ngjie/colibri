@@ -14,6 +14,7 @@ import {
 import { useGlobal } from "@/store/global";
 import { useData } from "@/store/data";
 import Theme from "./theme";
+import Repair from './repair';
 import styl from "./index.module.scss";
 
 
@@ -184,6 +185,10 @@ const LeftDrawer = defineComponent({
                                         useGlobal().updateDeclare(bool)
                                     }
                                 />
+                            </NFormItem>
+                            {/* 一键修复 */}
+                            <NFormItem>
+                                <Repair />
                             </NFormItem>
                         </NForm>
 

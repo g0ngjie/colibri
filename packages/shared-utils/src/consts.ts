@@ -35,6 +35,8 @@ export enum NoticeKey {
   BADGE_STATUS = 'colibri:notice:badge-status',
   /**命中率 */
   HIT_RATE = 'colibri:notice:hit-rate',
+  /**修复代理 */
+  FIX_PROXY = 'colibri:notice:fix-proxy',
 }
 
 /**主题 */

@@ -51,6 +51,10 @@ initStorage().then(() => {
             if (msg.key === NoticeKey.HIT_RATE) {
                 noticeBackgroundByContent(NoticeKey.HIT_RATE, msg.value);
             }
+            // 修复代理
+            if (msg.key === NoticeKey.FIX_PROXY) {
+                noticeDocumentByContent(NoticeKey.HIT_PROXY);
+            }
         }
     })
 

@@ -9,7 +9,6 @@ window.addEventListener(
         const data = event.data;
         let globalSwitch = false
         if (data.type === Notice.TYPE && data.to === Notice.TO_DOCUMENT) {
-            // console.log("[debug]document data:", data)
             switch (data.key) {
                 case NoticeKey.GLOBAL_SWITCH:
                     globalSwitch = data.value;
@@ -18,6 +17,8 @@ window.addEventListener(
                 case NoticeKey.INTERCEPT_LIST:
                     lib.update(data.value)
                     break;
+                case NoticeKey.FIX_PROXY:
+                    lib.fixProxy()
             }
         }
     },
