@@ -39,15 +39,17 @@ chrome.runtime.onMessage.addListener((msg) => {
                     // 总命中率
                     let counter = 0;
                     interceptList.forEach((target) => {
-                        if (
-                            target.match_url === msg.value?.match_url &&
-                            (target.method === "ANY" || target.method === msg.value?.method)
-                        ) {
-                            const totalHit = target.hit ? target.hit + 1 : 1;
-                            target.hit = totalHit;
-                            counter += totalHit;
-                        } else if (target.switch_on && target.hit) {
-                            counter += target.hit;
+                        if (target.switch_on) {
+                            if (
+                                target.match_url === msg.value?.match_url &&
+                                (target.method === "ANY" || target.method === msg.value?.method)
+                            ) {
+                                const totalHit = target.hit ? target.hit + 1 : 1;
+                                target.hit = totalHit;
+                                counter += totalHit;
+                            } else if (target.hit) {
+                                counter += target.hit;
+                            }
                         }
                     })
                     // 更新本地拦截列表
