@@ -94,6 +94,7 @@ export const useData = defineStore('data', () => {
             newItem.label = `${newItem.label || ''}_copy`;
             newItem.switch_on = false;
             newItem.expand = true;
+            newItem.hit = 0;
             tableList.value.push(newItem);
         }
     }
@@ -127,8 +128,12 @@ export const useData = defineStore('data', () => {
                 item.hit = 0;
             }
         })
+        // 获取全局状态
+        const localStatus = getStorage(StorageKey.GLOBAL_SWITCH, false)
         // 需要同步一下命中率
-        noticeContentByPopup(NoticeKey.HIT_RATE, null);
+        if (localStatus) noticeContentByPopup(NoticeKey.HIT_RATE, null);
+        // 当全局禁用时清空
+        else setBadge(undefined);
     }
 
     // 更新搜索关键字
