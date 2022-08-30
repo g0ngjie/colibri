@@ -6,7 +6,9 @@ export declare enum StorageKey {
     /**全局开关 */
     GLOBAL_SWITCH = "colibri:storage:global-switch",
     /**拦截列表 */
-    INTERCEPT_LIST = "colibri:storage:intercept-list"
+    INTERCEPT_LIST = "colibri:storage:intercept-list",
+    /**终端声明 */
+    TERMINAL_DECLARE = "colibri:storage:terminal-declare"
 }
 /**通知 */
 export declare enum Notice {

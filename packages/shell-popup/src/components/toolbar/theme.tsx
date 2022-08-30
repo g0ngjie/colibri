@@ -8,20 +8,20 @@ export default defineComponent({
     setup() {
         const store = useTheme();
 
-        const railStyle = (info: { checked: boolean }) => {
-            const style = { background: '' };
-            if (info.checked) {
-                style.background = "#55565a";
-            }
-            return style;
-        };
+        // const railStyle = (info: { checked: boolean }) => {
+        //     const style = { background: '' };
+        //     if (info.checked) {
+        //         style.background = "#55565a";
+        //     }
+        //     return style;
+        // };
         return () => {
             return (
                 <>
                     <NSwitch
                         v-model:value={store.isDark}
                         size="small"
-                        rail-style={railStyle}
+                        // rail-style={railStyle}
                         round={false}
                         onUpdate:value={(bool) =>
                             store.setTheme(bool ? Theme.DARK : Theme.LIGHT)

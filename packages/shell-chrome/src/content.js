@@ -21,8 +21,6 @@ initStorage().then(() => {
 
     script.addEventListener("load", () => {
         if (getStorage(StorageKey.GLOBAL_SWITCH, false)) {
-            // 打印声明
-            printDeclare()
             noticeDocumentByContent(NoticeKey.GLOBAL_SWITCH, true);
             noticeBackgroundByContent(NoticeKey.GLOBAL_SWITCH, true);
             // 刷新命中率
@@ -30,6 +28,10 @@ initStorage().then(() => {
         }
         if (getStorage(StorageKey.INTERCEPT_LIST)) {
             noticeDocumentByContent(NoticeKey.INTERCEPT_LIST, getStorage(StorageKey.INTERCEPT_LIST));
+        }
+        if (getStorage(StorageKey.TERMINAL_DECLARE, true)) {
+            // 终端声明
+            printDeclare()
         }
     });
 

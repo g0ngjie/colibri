@@ -9,6 +9,7 @@ import {
     NFormItem,
     NDivider,
     NInput,
+    NSwitch,
 } from "naive-ui";
 import { useGlobal } from "@/store/global";
 import { useData } from "@/store/data";
@@ -163,15 +164,28 @@ const LeftDrawer = defineComponent({
                     headerStyle={{ fontSize: '13px', color: '#606266', fontWeight: 600 }}
                 >
                     <section class={styl.drawerContainer}>
-                        <NFormItem
+                        <NForm
                             size="small"
                             labelPlacement="left"
                             labelWidth={160}
                             labelAlign="left"
-                            label="Theme"
                         >
-                            <Theme />
-                        </NFormItem>
+                            {/* 主题 */}
+                            <NFormItem label="Theme">
+                                <Theme />
+                            </NFormItem>
+                            {/* 声明 */}
+                            <NFormItem label="Declare">
+                                <NSwitch
+                                    v-model:value={useGlobal().declareStatus}
+                                    size="small"
+                                    round={false}
+                                    onUpdate:value={(bool) =>
+                                        useGlobal().updateDeclare(bool)
+                                    }
+                                />
+                            </NFormItem>
+                        </NForm>
 
                         <NForm
                             size="small"

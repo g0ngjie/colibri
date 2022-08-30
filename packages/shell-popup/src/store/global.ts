@@ -14,7 +14,10 @@ import {
 export const useGlobal = defineStore('global', () => {
     // 获取全局状态
     const localStatus = getStorage(StorageKey.GLOBAL_SWITCH, false)
+    // 获取声明状态
+    const localDeclare = getStorage(StorageKey.TERMINAL_DECLARE, true)
     const globalStatus = ref<boolean>(localStatus)
+    const declareStatus = ref<boolean>(localDeclare)
 
     // 更新全局状态
     const updateGlobalStatus = (bool: boolean) => {
@@ -29,9 +32,13 @@ export const useGlobal = defineStore('global', () => {
         // 需要同步一下命中率
         else noticeContentByPopup(NoticeKey.HIT_RATE, null);
     }
+    // 终端声明 printDeclare
+    const updateDeclare = (bool: boolean) => setStorage(StorageKey.TERMINAL_DECLARE, bool);
 
     return {
         globalStatus,
-        updateGlobalStatus
+        updateGlobalStatus,
+        declareStatus,
+        updateDeclare,
     }
 })
