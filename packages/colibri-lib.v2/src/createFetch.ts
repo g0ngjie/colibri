@@ -12,7 +12,7 @@ export const initFetchState = (state: Ref<IGlobalState>) => globalState = state
 function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
     let fetchMethod: string | undefined | "ANY" = "ANY"
     if (init) {
-        fetchMethod = init.method?.toUpperCase()
+        fetchMethod = init.method?.toUpperCase() || "ANY"
     }
     // @ts-ignore
     return OriginFetch(input, init).then((response: Response) => {
