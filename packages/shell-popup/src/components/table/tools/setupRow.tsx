@@ -1,6 +1,7 @@
 import { defineComponent, ref, onMounted, computed } from "vue";
 import { NForm, NFormItem, NInput, NIcon } from "naive-ui";
 import { ITableRowData } from "@/interfaces";
+import { isNumber } from "@alrale/common-lib";
 
 // 展开面板设置项
 export default defineComponent({
@@ -14,10 +15,34 @@ export default defineComponent({
         const refOverride = ref()
 
         const feedbackErr = ref("")
+        // status code error message
+        const statusErr = ref("")
 
         onMounted(() => {
             refOverride.value?.focus()
         })
+
+        const createStatus = (value?: string) => {
+            if (!value) {
+                statusErr.value = ""
+                return undefined
+            }
+            // 100 - 999
+            // status code 200、301、404、500...
+            const bool = isNumber(value)
+            if (bool) {
+
+                if (value.length !== 3) {
+                    statusErr.value = "Please enter the correct status code"
+                    return "warning"
+                } else {
+                    statusErr.value = ""
+                    return undefined
+                }
+            }
+            statusErr.value = "Status code is not legal"
+            return 'error'
+        }
 
         const handleFormat = () => {
             try {
@@ -35,6 +60,18 @@ export default defineComponent({
                     <NInput
                         v-model:value={props.data.label}
                         placeholder="please input label"
+                    />
+                </NFormItem>
+                <NFormItem
+                    label="Status"
+                    validationStatus={computed(() => createStatus(props.data.statusCode)).value}
+                    feedback={statusErr.value}
+                >
+                    {/* 设置Status */}
+                    <NInput
+                        maxlength={3}
+                        v-model:value={props.data.statusCode}
+                        placeholder="200"
                     />
                 </NFormItem>
                 <NFormItem

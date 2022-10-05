@@ -17,8 +17,10 @@ function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Resp
     // @ts-ignore
     return OriginFetch(input, init).then((response: Response) => {
         let txt: string | undefined;
+        let status = response.status
+        let statusText = response.statusText
         globalState.value.matching_content.forEach(target => {
-            const { switch_on = true, match_url, override = "", filter_type, method } = target
+            const { switch_on = true, match_url, override = "", filter_type, method, statusCode = "200" } = target
             // 是否需要匹配
             if (switch_on && match_url) {
                 // 判断是否存在协议匹配
@@ -28,6 +30,9 @@ function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Resp
                 if (!matched) return // 退出当前循环
                 // 修改响应
                 txt = typeof override === "string" ? override : JSON.stringify(override);
+                // 修改状态码
+                status = +statusCode
+                statusText = statusCode
                 // 通知
                 notice(response.url, match_url, fetchMethod || "")
             }
@@ -44,8 +49,8 @@ function CustomFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Resp
         });
         const newResponse = new Response(stream, {
             headers: response.headers,
-            status: response.status,
-            statusText: response.statusText,
+            status: status,
+            statusText: statusText,
         });
         const proxy = new Proxy(newResponse, {
             get: function (target, prop) {

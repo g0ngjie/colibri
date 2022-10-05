@@ -2,7 +2,7 @@
   "name": "colibri",
   "private": true,
   "description": "Modify your Ajax response to test",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "dev": "pnpm -C ./packages/shell-popup dev",
     "watch": "run-p watch:lib watch:chrome",

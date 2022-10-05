@@ -13,6 +13,8 @@ export declare const initXHRState: (state: Ref<IGlobalState>) => Ref<IGlobalStat
 declare class CustomXHR extends XMLHttpRequest {
     responseText: string;
     response: any;
+    status: number;
+    statusText: string;
     method: string;
     private message_once_lock;
     constructor();

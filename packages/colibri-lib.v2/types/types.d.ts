@@ -16,6 +16,8 @@ export interface IMatchContent {
     hit?: number;
     /**标题 */
     label?: string;
+    /**状态码 */
+    statusCode?: string;
 }
 export interface IGlobalState {
     /**全局开关 */
