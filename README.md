@@ -6,7 +6,7 @@
 
 ![operation](./media/operation.gif)
 
-开发期间参考了很多优秀的开源项目：[devtools](https://github.com/vuejs/devtools)、[ajax-hook](https://github.com/wendux/ajax-hook) 等，UI 风格参考 tweak。
+参考了很多优秀的开源项目：[devtools](https://github.com/vuejs/devtools)、[ajax-hook](https://github.com/wendux/ajax-hook) 等，UI 风格参考 tweak。
 
 主要技术栈 Vue3 + Tsx + Vite2 + NaiveUI。
 
