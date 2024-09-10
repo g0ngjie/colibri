@@ -9,7 +9,7 @@ export declare const OriginXHR: {
     readonly OPENED: number;
     readonly UNSENT: number;
 };
-export declare const initXHRState: (state: Ref<IGlobalState>) => Ref<IGlobalState>;
+export declare const initXHRState: (state: Ref<IGlobalState>) => Ref<IGlobalState, IGlobalState>;
 declare class CustomXHR extends XMLHttpRequest {
     responseText: string;
     response: any;

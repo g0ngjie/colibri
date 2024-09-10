@@ -1,4 +1,4 @@
-export declare type IFilterType = "normal" | "regex";
+export type IFilterType = "normal" | "regex";
 export interface IMatchContent {
     /**是否需要匹配 */
     switch_on: boolean;
@@ -26,4 +26,4 @@ export interface IGlobalState {
     matching_content: IMatchContent[];
 }
 /**请求协议 */
-export declare type IRequestMethod = "ANY" | "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+export type IRequestMethod = "ANY" | "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
